@@ -9,7 +9,8 @@ public class GravityField : MonoBehaviour
     {
         planet = transform.parent.GetComponent<Planet>();
         gravityField = GetComponent<SphereCollider>();
-        gravityField.radius = (float)(0.5 * Math.Sqrt(planet.mass / 2));
+        gravityField.radius = (float)(Math.Sqrt(planet.mass / 2));
+        Debug.Log("gravityField.radius: " + gravityField.radius);
     }
 
     private void OnTriggerStay(Collider other)
