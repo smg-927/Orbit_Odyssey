@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6572091102750385253}
   - component: {fileID: 8442527922371263078}
   - component: {fileID: 5051019586080146727}
-  - component: {fileID: 8023592941022560899}
+  - component: {fileID: 1082848497224046038}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -110,7 +110,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8023592941022560899
+--- !u!114 &1082848497224046038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be6f9e0aff780a4c937b1faf8e080ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 10
+  mass: 30
 --- !u!1 &6480227342898596847
 GameObject:
   m_ObjectHideFlags: 0
