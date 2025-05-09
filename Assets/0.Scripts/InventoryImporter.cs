@@ -1,19 +1,32 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic;
+
 public class InventoryImporter : MonoBehaviour
 {
-    [SerializeField] private Inventory inventory;
+    [SerializeField] public Inventory inventory;
+
+    public Dictionary<string, GameObject> planetTexts = new Dictionary<string, GameObject>();
 
     public TextMeshProUGUI planet1Text;
     public TextMeshProUGUI planet2Text;
     public TextMeshProUGUI planet3Text;
-    public TextMeshProUGUI wormholeText;
 
     void Start()
     {
-        planet1Text.text = "Planet 1: " + inventory.planet1.ToString();
-        planet2Text.text = "Planet 2: " + inventory.planet2.ToString();
-        planet3Text.text = "Planet 3: " + inventory.planet3.ToString();
-        wormholeText.text = "Wormhole: " + inventory.wormhole.ToString();
+
+        planetTexts.Add("Planet 1", planet1Text.gameObject);
+        planetTexts.Add("Planet 2", planet2Text.gameObject);
+        planetTexts.Add("Planet 3", planet3Text.gameObject);
+
+        foreach (var item in planetTexts)
+        {
+            item.Value.GetComponent<TextMeshProUGUI>().text = 'X' + inventory.planet1.ToString();
+        }
+    }
+
+    public void UpdateInventory(string text, int value)
+    {
+        planetTexts[text].GetComponent<TextMeshProUGUI>().text = 'X' + value.ToString();
     }
 }
