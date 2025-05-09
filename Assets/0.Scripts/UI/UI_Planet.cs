@@ -10,7 +10,7 @@ public class UI_Planet : MonoBehaviour, IPointerDownHandler
 
     private void Awake()
     {
-        uiController = GetComponentInParent<UIController>();
+        uiController = FindAnyObjectByType<UIController>();
     }
 
     public void OnPointerDown(PointerEventData eventData)

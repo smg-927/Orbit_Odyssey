@@ -29,7 +29,16 @@ public class CameraController : MonoBehaviour
         while (Time.time - strattime < 0.5f)
         {
             mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, camtransformlist.cameraTransformList[index].position, Time.deltaTime * 10f);
-            mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, camtransformlist.cameraTransformList[index].rotation, Time.deltaTime * 10f);
+
+            Vector3 currentRotation = mainCamera.transform.rotation.eulerAngles;
+            Vector3 targetRotation = camtransformlist.cameraTransformList[index].rotation.eulerAngles;
+
+            float newRotX = Mathf.Lerp(currentRotation.x, targetRotation.x, Time.deltaTime * 10f);
+            float newRotY = Mathf.Lerp(currentRotation.y, targetRotation.y, Time.deltaTime * 10f);
+            float newRotZ = Mathf.Lerp(currentRotation.z, targetRotation.z, Time.deltaTime * 10f);
+
+            mainCamera.transform.rotation = Quaternion.Euler(newRotX, newRotY, newRotZ);
+
             yield return null;
         }
         mainCamera.transform.position = camtransformlist.cameraTransformList[index].position;

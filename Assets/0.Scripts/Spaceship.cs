@@ -4,15 +4,15 @@ using UnityEngine;
 public class Spaceship : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
+    [SerializeField] private GameObject explosionPrefab;
     private Rigidbody rb;
     private Vector3 previousPosition;
-    private Vector3 direction;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
         previousPosition = transform.position;
-        direction = new Vector3(1, 0, 0);
+        rb.linearVelocity = new Vector3(1, 0, 0) * speed;
     }
 
     private void Update()
@@ -22,6 +22,21 @@ public class Spaceship : MonoBehaviour
 
     private void Move()
     {
-        rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, direction * speed, Time.deltaTime * speed);
+        Vector3 currentPosition = transform.position;
+        Vector3 direction = (currentPosition - previousPosition).normalized;
+
+        if (direction != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * speed);
+        }
+
+        previousPosition = currentPosition;
+    }
+
+    public void Die()
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }

@@ -19,7 +19,7 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
-        group_inventory = transform.GetChild(0).GetComponent<CanvasGroup>();
+        //group_inventory = transform.GetChild(0).GetComponent<CanvasGroup>();
         SetInventoryObj();
     }
 

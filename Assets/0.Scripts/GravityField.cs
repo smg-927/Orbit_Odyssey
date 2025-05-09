@@ -9,7 +9,7 @@ public class GravityField : MonoBehaviour
     {
         planet = transform.parent.GetComponent<Planet>();
         gravityField = GetComponent<SphereCollider>();
-        gravityField.radius = (float)(Math.Sqrt(planet.mass / 2));
+        gravityField.radius = (planet.mass/3);
         Debug.Log("gravityField.radius: " + gravityField.radius);
     }
 
@@ -21,8 +21,18 @@ public class GravityField : MonoBehaviour
             if (rb != null)
             {
                 Vector3 direction = (transform.position - other.transform.position).normalized;
+
+                // 중력 계산 (거리제곱에 반비례하는 버전)
+                // float distance = Vector3.Distance(transform.position, other.transform.position);
+                // float gravityForce = planet.mass * rb.mass / Mathf.Max(distance * distance, 0.01f); // 거리 제곱에 반비례
+
+                // 중력 계산 (거리와 상관없는 버전)
+                // float gravityForce = planet.mass * rb.mass;
+
+                // 중력 계산 (거리에 반비례 버전)
                 float distance = Vector3.Distance(transform.position, other.transform.position);
-                float gravityForce = planet.mass * rb.mass / Mathf.Max(distance * distance, 0.01f); // 거리 제곱에 반비례
+                float gravityForce = planet.mass * rb.mass / Mathf.Max(distance, 0.01f); // 거리에 반비례
+                
                 rb.AddForce(direction * gravityForce);
             }
         }
