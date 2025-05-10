@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UI_Planet : MonoBehaviour, IPointerDownHandler, IPointerClickHandler
+public class UI_Planet : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] GameObject prefab_planet;
     UIController uiController;
@@ -13,15 +13,23 @@ public class UI_Planet : MonoBehaviour, IPointerDownHandler, IPointerClickHandle
         uiController = FindAnyObjectByType<UIController>();
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    private void OnMouseDown()
     {
-        Debug.Log("Start Drag");
-        uiController.StartDragPlanet(this.gameObject, prefab_planet);
+        Debug.Log("3D Object Clicked");
+        if(uiController.inventoryPlanets[prefab_planet.name] > 0)
+        {
+            uiController.inventoryPlanets[prefab_planet.name]--;
+        }
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Clicked");
-        uiController.inventoryPlanets[prefab_planet.name]--;
+        if (uiController.inventoryPlanets[prefab_planet.name] <= 0)
+        {
+            Debug.Log("Not enough planets to drag");
+            return;
+        }
+        Debug.Log("Start Drag");
+        uiController.StartDragPlanet(this.gameObject, prefab_planet);
     }
 }

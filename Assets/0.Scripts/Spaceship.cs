@@ -12,6 +12,10 @@ public class Spaceship : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         previousPosition = transform.position;
+    }
+
+    public void GameStart()
+    {
         rb.linearVelocity = new Vector3(1, 0, 0) * speed;
     }
 
