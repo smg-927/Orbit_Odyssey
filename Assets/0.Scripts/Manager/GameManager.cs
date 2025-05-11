@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+<<<<<<< Updated upstream
 #region 게임상태 이동 관련
     public void MenuStart()
     {
@@ -120,6 +121,18 @@ public class GameManager : MonoBehaviour
         canvasGroup.alpha = 1;
         spaceship = Instantiate(spaceshipPrefab, spaceshipPrefab.transform.position, Quaternion.identity);
         Time.timeScale = 0;
+=======
+    public void PlayButtonClick()
+    {
+        if (currentGameState == GameState.Playing)
+        {
+            ChangeGameState(GameState.Mapping.ToString());
+        }
+        else if (currentGameState == GameState.Mapping)
+        {
+            ChangeGameState(GameState.Playing.ToString());
+        }
+>>>>>>> Stashed changes
     }
 
     public void PlayingStart()
@@ -128,8 +141,21 @@ public class GameManager : MonoBehaviour
         spaceship.GetComponent<Spaceship>().GameStart();
         canvasGroup.alpha = 0;
     }
+<<<<<<< Updated upstream
     private void PausedStart()
     {
+=======
+
+    private void MappingStart()
+    {
+        if(spaceship != null)
+        {
+            Destroy(spaceship);
+        }
+        canvasGroup.alpha = 1;
+        spaceship = Instantiate(spaceshipPrefab, new Vector3(-10, 0, 20), Quaternion.identity);
+        Time.timeScale = 0;
+>>>>>>> Stashed changes
     }
 
     private void GameOverStart()
