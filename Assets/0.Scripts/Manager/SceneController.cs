@@ -44,7 +44,7 @@ public class SceneController : MonoBehaviour
                 GameManager.Instance.StageSelectReady();
                 break;
             case "Ingame":
-                GameManager.Instance.MappingReady();
+                GameManager.Instance.MappingReady(true);
                 break;
         }
     }

@@ -41,6 +41,7 @@ public class Spaceship : MonoBehaviour
     public void Die()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        GameManager.Instance.ChangeGameState("GameOver");
         Destroy(gameObject);
     }
 }

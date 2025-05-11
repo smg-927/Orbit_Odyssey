@@ -64,6 +64,7 @@ public class UIController : MonoBehaviour
         //Retry
         if(Input.GetKeyDown(KeyCode.R))
         {
+            Debug.Log("Retry");
             Retry();
         }
     }
@@ -117,6 +118,7 @@ public class UIController : MonoBehaviour
             Destroy(obj);
         }
         InstalledPlanets.Clear();
+        GameManager.Instance.ChangeGameState("Mapping");
     }
 
     void SetInventoryObj()

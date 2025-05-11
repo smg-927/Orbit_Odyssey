@@ -1,12 +1,15 @@
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using NUnit.Framework;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     private GameObject spaceship;
     [SerializeField] private GameObject spaceshipPrefab;
-    private CanvasGroup canvasGroup;
+
+    private UIController uiController;
     public CameraController cameraController{get; private set;}
     public GameState currentGameState{get; private set;} = GameState.Menu;
 
@@ -34,21 +37,27 @@ public class GameManager : MonoBehaviour
         switch(currentGameState)
         {
             case GameState.Menu:
+                Debug.Log("GameStateChange : Menu");
                 MenuStart();
                 break;
             case GameState.StageSelect:
+                Debug.Log("GameStateChange : StageSelect");
                 StageSelectStart();
                 break;
             case GameState.Mapping:
+                Debug.Log("GameStateChange : Mapping");
                 MappingStart();
                 break;
             case GameState.Playing:
+                Debug.Log("GameStateChange : Playing");
                 PlayingStart();
                 break;
             case GameState.Paused:
+                Debug.Log("GameStateChange : Paused");
                 PausedStart();
                 break;
             case GameState.GameOver:
+                Debug.Log("GameStateChange : GameOver");
                 GameOverStart();
                 break;
         }
@@ -68,11 +77,12 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name != "Ingame")
         {
+            Debug.Log("Move to Ingame");
             SceneController.Instance.LoadSceneAsync("Ingame");
         }
         else
         {
-            MappingReady();
+            MappingReady(false);
         }
         
     }
@@ -87,18 +97,18 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.NewSceneLoaded();
     }
 
-    public void MappingReady()
+    public void MappingReady(bool isSceneLoaded)
     {
-        UIManager.Instance.NewSceneLoaded();
+        if(isSceneLoaded)
+        {
+            UIManager.Instance.NewSceneLoaded();
+        }
 
         if(spaceship != null)
         {
             Destroy(spaceship);
         }
-        else
-        {
-
-        }
+        spaceship = Instantiate(spaceshipPrefab, spaceshipPrefab.transform.position, Quaternion.identity);
 
         if(cameraController == null)
         {
@@ -109,16 +119,15 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(canvasGroup == null)
+        if(uiController == null)
         {
-            canvasGroup = FindAnyObjectByType<CanvasGroup>();
-            if(canvasGroup == null)
+            uiController = FindAnyObjectByType<UIController>();
+            if(uiController == null)
             {
-                Debug.LogError("CanvasGroup이 없습니다.");
+                Debug.LogError("UIController가 없습니다.");
             }
         }
-        canvasGroup.alpha = 1;
-        spaceship = Instantiate(spaceshipPrefab, spaceshipPrefab.transform.position, Quaternion.identity);
+        uiController.SetAlphaForInventory(1);
         Time.timeScale = 0;
     }
 
@@ -126,24 +135,39 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         spaceship.GetComponent<Spaceship>().GameStart();
-        canvasGroup.alpha = 0;
+        if(uiController == null) 
+        {
+            uiController = FindAnyObjectByType<UIController>();
+            if(uiController == null)
+            {
+                Debug.LogError("UIController가 없습니다.");
+            }
+        }
+        uiController.SetAlphaForInventory(0);
     }
     private void PausedStart()
     {
+        //어떠한 연출 필요
     }
 
     private void GameOverStart()
     {
+        //어떠한 연출 필요
+        StartCoroutine(GameOverCoroutine());
+        
     }
 
-
 #endregion
-
-
-
     public void ChangeScene(string sceneName)
     {
         SceneController.Instance.LoadSceneAsync(sceneName);
+    }
+
+    IEnumerator GameOverCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+
+        uiController.Retry();
     }
 
 }

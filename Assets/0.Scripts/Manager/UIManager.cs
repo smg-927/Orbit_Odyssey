@@ -123,7 +123,6 @@ public class UIManager : MonoBehaviour
     {
         if(!WindowSet.TryGetValue(windowName, out Window newwindow))
         {
-            Debug.Log("SetwindowWithoutclosing1: " + windowName);
             GameObject initialwindow = Resources.Load<GameObject>("Prefabs/UI/Windows/"+SceneManager.GetActiveScene().name+ "/" + windowName);
             if(initialwindow == null)
             {
@@ -137,7 +136,6 @@ public class UIManager : MonoBehaviour
 
             WindowSet.Add(window.name, window);
         }
-        Debug.Log("SetwindowWithoutclosing2: " + windowName);
         WindowSet[windowName].ShowAllUI();
     }
 
