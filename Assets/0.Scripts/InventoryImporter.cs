@@ -19,13 +19,13 @@ public class InventoryImporter : MonoBehaviour
         planetTexts.Add("Planet 2", planet2Text.gameObject);
         planetTexts.Add("Planet 3", planet3Text.gameObject);
 
-        planetTexts["Planet 1"].GetComponent<TextMeshProUGUI>().text = 'X' + inventory.planet1.ToString();
-        planetTexts["Planet 2"].GetComponent<TextMeshProUGUI>().text = 'X' + inventory.planet2.ToString();
-        planetTexts["Planet 3"].GetComponent<TextMeshProUGUI>().text = 'X' + inventory.planet3.ToString();
+        planetTexts["Planet 1"].GetComponent<TextMeshProUGUI>().text = inventory.planet1.ToString();
+        planetTexts["Planet 2"].GetComponent<TextMeshProUGUI>().text = inventory.planet2.ToString();
+        planetTexts["Planet 3"].GetComponent<TextMeshProUGUI>().text = inventory.planet3.ToString();
     }
 
     public void UpdateInventory(string text, int value)
     {
-        planetTexts[text].GetComponent<TextMeshProUGUI>().text = 'X' + value.ToString();
+        planetTexts[text].GetComponent<TextMeshProUGUI>().text = value.ToString();
     }
 }

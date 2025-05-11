@@ -26,8 +26,8 @@ public class GravityField : MonoBehaviour
                 // float distance = Vector3.Distance(transform.position, other.transform.position);
                 // float gravityForce = planet.mass * rb.mass / Mathf.Max(distance * distance, 0.01f); // 거리 제곱에 반비례
 
-                // 중력 계산 (거리와 상관없는 버전)
-                // float gravityForce = planet.mass * rb.mass;
+                //중력 계산 (거리와 상관없는 버전)
+                //float gravityForce = planet.mass * rb.mass;
 
                 // 중력 계산 (거리에 반비례 버전)
                 float distance = Vector3.Distance(transform.position, other.transform.position);
