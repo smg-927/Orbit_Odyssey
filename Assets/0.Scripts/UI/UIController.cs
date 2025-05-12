@@ -113,9 +113,10 @@ public class UIController : MonoBehaviour
     {
         //Reset planets in inventory
         SetInventoryObj();
-        inventoryImporter.UpdateInventory("Planet 1", inventoryPlanets["Planet 1"]);
-        inventoryImporter.UpdateInventory("Planet 2", inventoryPlanets["Planet 2"]);
-        inventoryImporter.UpdateInventory("Planet 3", inventoryPlanets["Planet 3"]);
+        inventoryImporter.UpdateInventory("Venus", inventoryPlanets["Venus"]);
+        inventoryImporter.UpdateInventory("Mars", inventoryPlanets["Mars"]);
+        inventoryImporter.UpdateInventory("Jupiter", inventoryPlanets["Jupiter"]);
+        inventoryImporter.UpdateInventory("Saturn", inventoryPlanets["Saturn"]);
         // foreach (GameObject obj in InventoryPlanets)
         // {
         //     obj.GetComponent<Image>().enabled = true;
@@ -133,8 +134,9 @@ public class UIController : MonoBehaviour
     {
         Inventory inventory = inventoryImporter.inventory;
         inventoryPlanets.Clear();
-        inventoryPlanets.Add("Planet 1", inventory.planet1);
-        inventoryPlanets.Add("Planet 2", inventory.planet2);
-        inventoryPlanets.Add("Planet 3", inventory.planet3);
+        inventoryPlanets.Add("Venus", inventory.Venus);
+        inventoryPlanets.Add("Mars", inventory.Mars);
+        inventoryPlanets.Add("Jupiter", inventory.Jupiter);
+        inventoryPlanets.Add("Saturn", inventory.Saturn);
     }
 }

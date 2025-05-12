@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Uranus
-  m_Shader: {fileID: -6465566751694194690, guid: 9613165056b174b1c95b1c3ddf7a2d1a, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 35234f8861cf7c44f8723ed9de1c6a4d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -38,7 +38,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_CFCAFFE9:
-        m_Texture: {fileID: 2800000, guid: 225494c2ffe3e445ab0aa1b3f6a661f2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 09215a2baad70b049a981871f7a2c1bc, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:

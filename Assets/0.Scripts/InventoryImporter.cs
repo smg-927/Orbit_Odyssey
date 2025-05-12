@@ -8,20 +8,23 @@ public class InventoryImporter : MonoBehaviour
 
     public Dictionary<string, GameObject> planetTexts = new Dictionary<string, GameObject>();
 
-    public TextMeshProUGUI planet1Text;
-    public TextMeshProUGUI planet2Text;
-    public TextMeshProUGUI planet3Text;
+    public TextMeshProUGUI VenusText;
+    public TextMeshProUGUI MarsText;
+    public TextMeshProUGUI JupiterText;
+    public TextMeshProUGUI SaturnText;
 
     void Start()
     {
 
-        planetTexts.Add("Planet 1", planet1Text.gameObject);
-        planetTexts.Add("Planet 2", planet2Text.gameObject);
-        planetTexts.Add("Planet 3", planet3Text.gameObject);
+        planetTexts.Add("Venus", VenusText.gameObject);
+        planetTexts.Add("Mars", MarsText.gameObject);
+        planetTexts.Add("Jupiter", JupiterText.gameObject);
+        planetTexts.Add("Saturn", SaturnText.gameObject);
 
-        planetTexts["Planet 1"].GetComponent<TextMeshProUGUI>().text = inventory.planet1.ToString();
-        planetTexts["Planet 2"].GetComponent<TextMeshProUGUI>().text = inventory.planet2.ToString();
-        planetTexts["Planet 3"].GetComponent<TextMeshProUGUI>().text = inventory.planet3.ToString();
+        planetTexts["Venus"].GetComponent<TextMeshProUGUI>().text = inventory.Venus.ToString();
+        planetTexts["Mars"].GetComponent<TextMeshProUGUI>().text = inventory.Mars.ToString();
+        planetTexts["Jupiter"].GetComponent<TextMeshProUGUI>().text = inventory.Jupiter.ToString();
+        planetTexts["Saturn"].GetComponent<TextMeshProUGUI>().text = inventory.Saturn.ToString();
     }
 
     public void UpdateInventory(string text, int value)
