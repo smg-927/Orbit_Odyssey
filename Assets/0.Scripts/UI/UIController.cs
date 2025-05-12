@@ -27,11 +27,11 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        /*if(Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("Retry");
             Retry();
-        }
+        }*/
         
         if(GameManager.Instance.currentGameState != GameState.Mapping)
         {

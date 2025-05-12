@@ -37,6 +37,7 @@ public class Spaceship : MonoBehaviour
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * speed);
         }*/
 
+        //Z축 중심으로만 회전하도록 제한
         Vector3 XYDirection = new Vector3(direction.x, direction.y, 0);
         if (XYDirection != Vector3.zero)
         {
