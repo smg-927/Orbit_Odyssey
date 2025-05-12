@@ -26,4 +26,12 @@ public class Window_ingame1 : Window
             GameManager.Instance.cameraController.SwitchCamera();
         }
     }
+
+    public void RetryButton()
+    {
+        if (GameManager.Instance.currentGameState == GameState.Mapping)
+        {
+            GameManager.Instance.Retry();
+        }
+    }
 }

@@ -172,4 +172,9 @@ public class GameManager : MonoBehaviour
         uiController.Retry();
     }
 
+    public void Retry()
+    {
+        uiController.Retry();
+    }
+
 }
