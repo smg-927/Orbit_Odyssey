@@ -17,7 +17,7 @@ public class Spaceship : MonoBehaviour
 
     public void GameStart()
     {
-        rb.linearVelocity = new Vector3(1, 0, 0) * speed;
+        rb.AddForce(new Vector3(1, 0, 0) * speed, ForceMode.VelocityChange);
     }
 
     private void Update()

@@ -3,15 +3,12 @@ using System;
 public class GravityField : MonoBehaviour
 {
     private Planet planet;
-    private SphereCollider gravityField;
 
     private void Start()
     {
         planet = transform.parent.GetComponent<Planet>();
-        gravityField = GetComponent<SphereCollider>();
-        //gravityField.radius = (planet.mass/3);
-        gravityField.radius = (planet.mass/2);
-        Debug.Log("gravityField.radius: " + gravityField.radius);
+        float scale = 5 * planet.mass/20;
+        transform.localScale = new Vector3(scale,scale,scale);
     }
 
     private void OnTriggerStay(Collider other)

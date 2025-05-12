@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log("GameStateChange : GameOver");
                 GameOverStart();
                 break;
+            case GameState.Win:
+                Debug.Log("GameStateChange : Win");
+                WinStart();
+                break;
         }
     }
 
@@ -131,6 +135,7 @@ public class GameManager : MonoBehaviour
         }
 
         UIManager.Instance.HideWindow("Window3");
+        UIManager.Instance.HideWindow("Window4");
         uiController.SetAlphaForInventory(1);
         Time.timeScale = 0;
     }
@@ -157,6 +162,11 @@ public class GameManager : MonoBehaviour
     private void GameOverStart()
     {
         UIManager.Instance.SetwindowWithoutclosing("Window3");
+    }
+
+    private void WinStart()
+    {
+        UIManager.Instance.SetwindowWithoutclosing("Window4");
     }
 
 #endregion

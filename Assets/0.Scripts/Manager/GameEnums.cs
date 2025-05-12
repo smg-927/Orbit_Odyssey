@@ -6,5 +6,6 @@ public enum GameState
     Mapping,
     Playing,
     Paused,
-    GameOver
+    GameOver,
+    Win,
 }

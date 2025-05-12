@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Window_Ingame3 : Window
+public class Window_Ingame4 : Window
 {
     protected override void Awake()
     {
