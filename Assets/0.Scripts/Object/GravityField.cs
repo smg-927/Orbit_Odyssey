@@ -9,6 +9,10 @@ public class GravityField : MonoBehaviour
         planet = transform.parent.GetComponent<Planet>();
         float scale = 5 * planet.mass/20;
         transform.localScale = new Vector3(scale,scale,scale);
+        if(planet.isgoal)
+        {
+            this.GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)

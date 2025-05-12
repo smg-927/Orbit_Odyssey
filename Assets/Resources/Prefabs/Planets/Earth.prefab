@@ -5010,6 +5010,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3165352345345687863}
     m_Modifications:
+    - target: {fileID: 394968789903871081, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4313154276768703238, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
       propertyPath: m_Name
       value: GravityFieldwithEffect

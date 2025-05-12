@@ -149,6 +149,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.HideWindow("Window3");
         UIManager.Instance.HideWindow("Window4");
         uiController.SetAlphaForInventory(1);
+        uiController.SetPlanetGravityEffectOn();
         Time.timeScale = 0;
     }
 
@@ -165,6 +166,7 @@ public class GameManager : MonoBehaviour
             }
         }
         uiController.SetAlphaForInventory(0);
+        uiController.SetPlanetGravityEffectOff();
     }
     private void PausedStart()
     {
