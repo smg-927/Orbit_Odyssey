@@ -20,7 +20,12 @@ public class GravityField : MonoBehaviour
             Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
+                //Vector3 direction = (transform.position - other.transform.position).normalized;
+
                 Vector3 direction = (transform.position - other.transform.position).normalized;
+                direction.x = 0f;
+                direction.z = 0f;
+                direction = direction.normalized;
 
                 // 중력 계산 (거리제곱에 반비례하는 버전)
                 // float distance = Vector3.Distance(transform.position, other.transform.position);

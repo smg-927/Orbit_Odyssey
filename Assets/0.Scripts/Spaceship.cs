@@ -5,6 +5,7 @@ public class Spaceship : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] float rotationSpeed = 15;
     private Rigidbody rb;
     private Vector3 previousPosition;
 
@@ -30,10 +31,18 @@ public class Spaceship : MonoBehaviour
         Vector3 currentPosition = transform.position;
         Vector3 direction = (currentPosition - previousPosition).normalized;
 
-        if (direction != Vector3.zero)
+        /*if (direction != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * speed);
+        }*/
+
+        Vector3 XYDirection = new Vector3(direction.x, direction.y, 0);
+        if (XYDirection != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(XYDirection.y, XYDirection.x) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
 
         previousPosition = currentPosition;
