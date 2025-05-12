@@ -27,6 +27,17 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("Retry");
+            Retry();
+        }
+        
+        if(GameManager.Instance.currentGameState != GameState.Mapping)
+        {
+            return;
+        }
+
         if(draging && dragingObj != null)
         {
             if (Input.GetMouseButton(0))
@@ -61,12 +72,7 @@ public class UIController : MonoBehaviour
             }
         }
 
-        //Retry
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("Retry");
-            Retry();
-        }
+        
     }
 
     public void StartDragPlanet(GameObject ui_planet, GameObject prefab_planet)

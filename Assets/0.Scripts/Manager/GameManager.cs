@@ -119,6 +119,8 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        cameraController.CameraInitialize();
+
         if(uiController == null)
         {
             uiController = FindAnyObjectByType<UIController>();
@@ -127,6 +129,8 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("UIController가 없습니다.");
             }
         }
+
+        UIManager.Instance.HideWindow("Window3");
         uiController.SetAlphaForInventory(1);
         Time.timeScale = 0;
     }
@@ -152,9 +156,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOverStart()
     {
-        //어떠한 연출 필요
-        StartCoroutine(GameOverCoroutine());
-        
+        UIManager.Instance.SetwindowWithoutclosing("Window3");
     }
 
 #endregion

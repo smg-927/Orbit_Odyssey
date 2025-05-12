@@ -126,7 +126,7 @@ public class UIManager : MonoBehaviour
             GameObject initialwindow = Resources.Load<GameObject>("Prefabs/UI/Windows/"+SceneManager.GetActiveScene().name+ "/" + windowName);
             if(initialwindow == null)
             {
-                Debug.LogError($"해당 씬에 initialwindow이 없습니다.");
+                Debug.LogError($"해당 씬에 "+ windowName+"이 없습니다.");
                 return;
             }
             

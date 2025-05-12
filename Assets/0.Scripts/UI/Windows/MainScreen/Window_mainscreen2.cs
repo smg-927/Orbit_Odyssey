@@ -16,4 +16,10 @@ public class Window_mainscreen2 : Window
     {
         GameManager.Instance.ChangeGameState("Mapping");
     }
+
+    public void ExitButton()
+    {
+        Application.Quit();
+        //추후 변경 필요
+    }
 }

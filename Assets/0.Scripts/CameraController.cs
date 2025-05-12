@@ -10,6 +10,11 @@ public class CameraController : MonoBehaviour
         currentCameraIndex = camtransformlist.cameraTransformList.Count - 1;
         SwitchCamera();
     }
+    public void CameraInitialize()
+    {
+        mainCamera.transform.position = camtransformlist.cameraTransformList[0].position;
+        mainCamera.transform.rotation = camtransformlist.cameraTransformList[0].rotation;
+    }
     public void SwitchCamera()
     {
         currentCameraIndex++;

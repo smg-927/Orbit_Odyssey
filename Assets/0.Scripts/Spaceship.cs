@@ -22,6 +22,7 @@ public class Spaceship : MonoBehaviour
     private void Update()
     {
         Move();
+        CheckOutOfBounds();
     }
 
     private void Move()
@@ -36,6 +37,18 @@ public class Spaceship : MonoBehaviour
         }
 
         previousPosition = currentPosition;
+    }
+
+    private void CheckOutOfBounds()
+    {
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
+        
+        // 화면 밖으로 나갔는지 확인 (x, y 좌표가 0보다 작거나 1보다 큰 경우)
+        if (viewportPosition.x < 0 || viewportPosition.x > 1 || 
+            viewportPosition.y < 0 || viewportPosition.y > 1)
+        {
+            Die();
+        }
     }
 
     public void Die()
