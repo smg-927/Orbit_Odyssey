@@ -54,6 +54,7 @@ public class UIController : MonoBehaviour
             {
                 SetAlphaForInventory(1);
 
+                GameManager.Instance.PlaySoundEffect("drop");
                 // for(int i=0;i< InventoryPlanets.Count;i++)
                 // {
                 //     if(InventoryPlanets[i] == choosingObj)
@@ -84,6 +85,7 @@ public class UIController : MonoBehaviour
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
         worldPos.z = 20f;
 
+        GameManager.Instance.PlaySoundEffect("grab");
         choosingObj = ui_planet;
         dragingObj = Instantiate(prefab_planet, worldPos, Quaternion.identity);
         draging = true;

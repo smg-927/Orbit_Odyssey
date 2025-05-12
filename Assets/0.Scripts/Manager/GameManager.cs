@@ -2,7 +2,9 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
@@ -12,6 +14,9 @@ public class GameManager : MonoBehaviour
     private UIController uiController;
     public CameraController cameraController{get; private set;}
     public GameState currentGameState{get; private set;} = GameState.Menu;
+
+    //Audio Sources
+    public Dictionary<string, AudioSource> audioSources = new Dictionary<string, AudioSource>();
 
     private void Awake()
     {
@@ -23,6 +28,13 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        Transform audioParent = transform.Find("Audio Sources");
+        foreach(Transform child in audioParent)
+        {
+            String audioName = child.name.Replace("audio_", "");
+            audioSources.Add(audioName, child.GetComponent<AudioSource>());
         }
     }
 
@@ -187,4 +199,8 @@ public class GameManager : MonoBehaviour
         uiController.Retry();
     }
 
+    public void PlaySoundEffect(String name)
+    {
+        audioSources[name].PlayOneShot(audioSources[name].clip);
+    }
 }

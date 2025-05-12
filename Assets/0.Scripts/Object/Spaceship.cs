@@ -57,6 +57,7 @@ public class Spaceship : MonoBehaviour
         if (viewportPosition.x < 0 || viewportPosition.x > 1 || 
             viewportPosition.y < 0 || viewportPosition.y > 1)
         {
+            GameManager.Instance.PlaySoundEffect("destroy");
             Die();
         }
     }

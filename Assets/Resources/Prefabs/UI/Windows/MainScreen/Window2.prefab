@@ -461,7 +461,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 208618853059169143}
         m_TargetAssemblyTypeName: Window_mainscreen2, Assembly-CSharp
-        m_MethodName: GamePlay
+        m_MethodName: ExitButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

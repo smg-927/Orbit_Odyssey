@@ -13,10 +13,12 @@ public class Planet : MonoBehaviour
             if(isgoal)
             {
                 Destroy(collision.gameObject);
+                GameManager.Instance.PlaySoundEffect("clear");
                 GameManager.Instance.ChangeGameState("Win");
             }
             else
             {
+                GameManager.Instance.PlaySoundEffect("destroy");
                 collision.gameObject.GetComponent<Spaceship>().Die();
             }
         }

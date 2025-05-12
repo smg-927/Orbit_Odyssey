@@ -8,6 +8,7 @@ public class Blackhole : Planet
     {
         if(other.gameObject.CompareTag("Spaceship"))
         {
+            GameManager.Instance.PlaySoundEffect("warp");
             other.gameObject.transform.position = whitehole.transform.position;
         }
     }
