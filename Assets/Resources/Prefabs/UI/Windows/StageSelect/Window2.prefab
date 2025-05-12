@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 7877413543670704650}
   - component: {fileID: 6165361043492654269}
   m_Layer: 5
-  m_Name: Retry
+  m_Name: Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +714,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 830, y: 400}
-  m_SizeDelta: {x: 125, y: 125}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4860696084625142547
 CanvasRenderer:
@@ -744,7 +744,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 398cdfc3a51c5474ab3634ab70b62034, type: 3}
+  m_Sprite: {fileID: 1246325210, guid: 398cdfc3a51c5474ab3634ab70b62034, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

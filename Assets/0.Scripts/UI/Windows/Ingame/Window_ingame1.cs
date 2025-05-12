@@ -39,4 +39,10 @@ public class Window_ingame1 : Window
             GameManager.Instance.Retry();
         }
     }
+
+    public void ReturnToMenu()
+    {
+        GameManager.Instance.PlaySoundEffect("button2");
+        GameManager.Instance.ChangeGameState("Menu");
+    }
 }
