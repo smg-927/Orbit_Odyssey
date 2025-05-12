@@ -14,7 +14,7 @@ public class UIController : MonoBehaviour
     InventoryImporter inventoryImporter;
     CanvasGroup group_inventory;
     public Dictionary<string, int> inventoryPlanets = new Dictionary<string, int>();
-    List<GameObject> InventoryPlanets = new List<GameObject>();
+    //List<GameObject> InventoryPlanets = new List<GameObject>();
     //Installed Planet
     List<GameObject> InstalledPlanets= new List<GameObject>();
 
@@ -27,6 +27,17 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("Retry");
+            Retry();
+        }
+        
+        if(GameManager.Instance.currentGameState != GameState.Mapping)
+        {
+            return;
+        }
+
         if(draging && dragingObj != null)
         {
             if (Input.GetMouseButton(0))
@@ -61,11 +72,7 @@ public class UIController : MonoBehaviour
             }
         }
 
-        //Retry
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            Retry();
-        }
+        
     }
 
     public void StartDragPlanet(GameObject ui_planet, GameObject prefab_planet)
@@ -80,23 +87,23 @@ public class UIController : MonoBehaviour
         draging = true;
     }
 
-    void SetAlphaForInventory(int alphaCase)
+    public void SetAlphaForInventory(int alphaCase)
     {
         if(alphaCase == 0)
         {
             group_inventory.alpha = 0.2f;
-            for (int i = 0; i < InventoryPlanets.Count; i++)
-            {
-                InventoryPlanets[i].GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
-            }
+            // for (int i = 0; i < InventoryPlanets.Count; i++)
+            // {
+            //     InventoryPlanets[i].GetComponent<Image>().color = new Color(1, 1, 1, 0.5f);
+            // }
         }
         else
         {
             group_inventory.alpha = 1f;
-            for (int i = 0; i < InventoryPlanets.Count; i++)
-            {
-                InventoryPlanets[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
-            }
+            // for (int i = 0; i < InventoryPlanets.Count; i++)
+            // {
+            //     InventoryPlanets[i].GetComponent<Image>().color = new Color(1, 1, 1, 1);
+            // }
         }
     }
 
@@ -104,6 +111,9 @@ public class UIController : MonoBehaviour
     {
         //Reset planets in inventory
         SetInventoryObj();
+        inventoryImporter.UpdateInventory("Planet 1", inventoryPlanets["Planet 1"]);
+        inventoryImporter.UpdateInventory("Planet 2", inventoryPlanets["Planet 2"]);
+        inventoryImporter.UpdateInventory("Planet 3", inventoryPlanets["Planet 3"]);
         // foreach (GameObject obj in InventoryPlanets)
         // {
         //     obj.GetComponent<Image>().enabled = true;
@@ -114,6 +124,7 @@ public class UIController : MonoBehaviour
             Destroy(obj);
         }
         InstalledPlanets.Clear();
+        GameManager.Instance.ChangeGameState("Mapping");
     }
 
     void SetInventoryObj()

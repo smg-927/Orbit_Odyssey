@@ -2,14 +2,18 @@ using UnityEngine;
 using System.Collections;
 public class CameraController : MonoBehaviour
 {
-    private Camera mainCamera;
-    public CameraTransform camtransformlist;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private CameraTransform camtransformlist;
     private int currentCameraIndex;
     void Start()
     {
-        mainCamera = Camera.main;
         currentCameraIndex = camtransformlist.cameraTransformList.Count - 1;
         SwitchCamera();
+    }
+    public void CameraInitialize()
+    {
+        mainCamera.transform.position = camtransformlist.cameraTransformList[0].position;
+        mainCamera.transform.rotation = camtransformlist.cameraTransformList[0].rotation;
     }
     public void SwitchCamera()
     {

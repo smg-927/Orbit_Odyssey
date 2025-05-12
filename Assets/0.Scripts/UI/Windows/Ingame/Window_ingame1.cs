@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class Window_ingame1 : Window
+{
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    public void PlayButton()
+    {
+        if(GameManager.Instance.currentGameState == GameState.Mapping)
+        {
+            GameManager.Instance.ChangeGameState("Playing");
+        }
+        else
+        {
+            GameManager.Instance.ChangeGameState("Mapping");
+        }
+    }
+
+    public void CameraButton()
+    {
+        if(GameManager.Instance.currentGameState == GameState.Playing)
+        {
+            GameManager.Instance.cameraController.SwitchCamera();
+        }
+    }
+}
