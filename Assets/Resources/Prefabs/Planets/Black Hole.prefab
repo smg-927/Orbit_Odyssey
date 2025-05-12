@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253932452653946035}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1542956516596436980}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!198 &4544433909170125197
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4842,7 +4842,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542956516596436980}
-  - component: {fileID: 3981129413793958325}
+  - component: {fileID: 8982338207994219346}
+  - component: {fileID: 2356636318195481025}
   m_Layer: 0
   m_Name: Black Hole
   m_TagString: Untagged
@@ -4870,7 +4871,28 @@ Transform:
   - {fileID: 6651195343778734210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
---- !u!114 &3981129413793958325
+--- !u!135 &8982338207994219346
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362279666177859935}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2356636318195481025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4879,10 +4901,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1362279666177859935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be6f9e0aff780a4c937b1faf8e080ff, type: 3}
+  m_Script: {fileID: 11500000, guid: b979481c488ad2f4691e18d97081fd45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 30
+  mass: 5
+  isgoal: 0
+  whitehole: {fileID: 0}
 --- !u!1 &4298058262625782943
 GameObject:
   m_ObjectHideFlags: 0
@@ -5008,7 +5032,6 @@ GameObject:
   - component: {fileID: 3723762162141624603}
   - component: {fileID: 5479972163099558157}
   - component: {fileID: 2940498950275350804}
-  - component: {fileID: 7753374941983374713}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -5084,27 +5107,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &7753374941983374713
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5728780447398947264}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7297183092174596609
 GameObject:
   m_ObjectHideFlags: 0
@@ -5117,7 +5119,7 @@ GameObject:
   - component: {fileID: 4817710186244150811}
   - component: {fileID: 5749254253946117207}
   - component: {fileID: 7247750191305556257}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5132,13 +5134,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7297183092174596609}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1542956516596436980}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!33 &4817710186244150811
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5265,6 +5267,14 @@ PrefabInstance:
     - target: {fileID: 3813319595519576090, guid: 622daaa095fc3374cb51b6167934011e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037519632596771598, guid: 622daaa095fc3374cb51b6167934011e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592563225825137918, guid: 622daaa095fc3374cb51b6167934011e, type: 3}
+      propertyPath: scale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

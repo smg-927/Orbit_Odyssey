@@ -3,12 +3,17 @@ using System;
 public class GravityField : MonoBehaviour
 {
     private Planet planet;
-
+    [SerializeField] float scale = 10;
     private void Start()
     {
         planet = transform.parent.GetComponent<Planet>();
-        float scale = 5 * planet.mass/20;
+        //float scale = 5 * planet.mass/20;
+        //float multiplier = 2f;
         transform.localScale = new Vector3(scale,scale,scale);
+        if(planet.isgoal)
+        {
+            this.GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
     private void OnTriggerStay(Collider other)

@@ -122,7 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be6f9e0aff780a4c937b1faf8e080ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 30
+  mass: 0
+  isgoal: 0
 --- !u!1001 &1891040608685645533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6947196273613641001}
     m_Modifications:
+    - target: {fileID: 394968789903871081, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4313154276768703238, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
       propertyPath: m_Name
       value: GravityFieldwithEffect

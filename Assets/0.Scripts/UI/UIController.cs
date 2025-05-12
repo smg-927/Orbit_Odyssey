@@ -141,4 +141,20 @@ public class UIController : MonoBehaviour
         inventoryPlanets.Add("Jupiter", inventory.Jupiter);
         inventoryPlanets.Add("Saturn", inventory.Saturn);
     }
+
+    public void SetPlanetGravityEffectOff()
+    {
+        foreach (GameObject obj in InstalledPlanets)
+        {
+            obj.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = false;
+        }
+    }
+
+    public void SetPlanetGravityEffectOn()
+    {
+        foreach (GameObject obj in InstalledPlanets)
+        {
+            obj.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
+        }
+    }
 }
