@@ -12,6 +12,7 @@ public class Planet : MonoBehaviour
         {
             if(isgoal)
             {
+                Destroy(collision.gameObject);
                 GameManager.Instance.ChangeGameState("Win");
             }
             else
