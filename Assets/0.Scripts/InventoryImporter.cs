@@ -4,18 +4,29 @@ using System.Collections.Generic;
 
 public class InventoryImporter : MonoBehaviour
 {
-    [SerializeField] public Inventory inventory;
-
+    public Inventory inventory{get; private set;}
     public Dictionary<string, GameObject> planetTexts = new Dictionary<string, GameObject>();
-
     public TextMeshProUGUI VenusText;
     public TextMeshProUGUI MarsText;
     public TextMeshProUGUI JupiterText;
     public TextMeshProUGUI SaturnText;
 
+    void Awake()
+    {
+        inventory = Resources.Load<Inventory>("DataTable/Inventory/Inventory_stage" + GameManager.Instance.GameStage);
+        if(inventory == null)
+        {
+            Debug.LogError("Inventory not found");
+            return;
+        }
+    }
     void Start()
     {
-
+        if(inventory == null)
+        {
+            Debug.LogError("Inventory not found");
+            return;
+        }
         planetTexts.Add("Venus", VenusText.gameObject);
         planetTexts.Add("Mars", MarsText.gameObject);
         planetTexts.Add("Jupiter", JupiterText.gameObject);

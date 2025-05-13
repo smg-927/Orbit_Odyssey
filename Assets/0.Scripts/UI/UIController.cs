@@ -147,6 +147,11 @@ public class UIController : MonoBehaviour
     void SetInventoryObj()
     {
         Inventory inventory = inventoryImporter.inventory;
+        if(inventory == null)
+        {
+            Debug.LogError("Inventory is null");
+            return;
+        }
         inventoryPlanets.Clear();
         inventoryPlanets.Add("Venus", inventory.Venus);
         inventoryPlanets.Add("Mars", inventory.Mars);

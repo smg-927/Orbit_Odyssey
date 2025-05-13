@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c74ed13c1fb0a4ba2a6915772728dc, type: 3}
   m_Name: Inventory_stage4
   m_EditorClassIdentifier: 
-  planet1: 0
-  planet2: 0
-  planet3: 0
-  planet4: 0
-  blackhole: 0
-  whitehole: 0
-  wormhole: 0
-  others: 0
+  Venus: 3
+  Mars: 2
+  Jupiter: 1
+  Saturn: 2

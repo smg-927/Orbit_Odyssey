@@ -15,7 +15,7 @@ public class Window_mainscreen2 : Window
 
     public void GamePlay()
     {
-        GameManager.Instance.GameStage = 4;
+        GameManager.Instance.GameStage = 1;
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }

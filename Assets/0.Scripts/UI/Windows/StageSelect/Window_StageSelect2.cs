@@ -9,7 +9,7 @@ public class Window_StageSelect2 : Window
 
     public void Stage1()
     {
-        GameManager.Instance.GameStage = 4; // 추후 변경경
+        GameManager.Instance.GameStage = 1; // 추후 변경경
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
