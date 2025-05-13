@@ -24,12 +24,17 @@ public class UI_Planet : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (uiController.inventoryPlanets[prefab_planet.name] <= 0)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("Not enough planets to drag");
-            return;
+            // 좌클릭 처리 로직
+            if (uiController.inventoryPlanets[prefab_planet.name] <= 0)
+            {
+                Debug.Log("Not enough planets to drag");
+                return;
+            }
+
+            Debug.Log("Start Drag");
+            uiController.StartDragPlanet(this.gameObject, prefab_planet);
         }
-        Debug.Log("Start Drag");
-        uiController.StartDragPlanet(this.gameObject, prefab_planet);
     }
 }
