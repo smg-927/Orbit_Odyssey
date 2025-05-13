@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
     //Audio Sources
     public Dictionary<string, AudioSource> audioSources = new Dictionary<string, AudioSource>();
+    public Dictionary<string, AudioSource> bgmSources = new Dictionary<string, AudioSource>();
 
     private void Awake()
     {
@@ -36,6 +37,13 @@ public class GameManager : MonoBehaviour
         {
             String audioName = child.name.Replace("audio_", "");
             audioSources.Add(audioName, child.GetComponent<AudioSource>());
+        }
+
+        Transform bgmParent = transform.Find("Audio Sources_BGM");
+        foreach (Transform child in bgmParent)
+        {
+            String audioName = child.name.Replace("bgm_", "");
+            bgmSources.Add(audioName, child.GetComponent<AudioSource>());
         }
     }
 
@@ -84,10 +92,12 @@ public class GameManager : MonoBehaviour
     public void MenuStart()
     {
         SceneController.Instance.LoadSceneAsync("MainScreen");
+        SetBGM("main", true);
     }
     public void StageSelectStart()
     {
         SceneController.Instance.LoadSceneAsync("StageSelect");
+        SetBGM("main", true);
     }
     private void MappingStart()
     {
@@ -95,6 +105,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Move to Ingame");
             SceneController.Instance.LoadSceneAsync("Ingame");
+            SetBGM("main", false);
         }
         else
         {
@@ -207,5 +218,18 @@ public class GameManager : MonoBehaviour
     public void PlaySoundEffect(String name)
     {
         audioSources[name].PlayOneShot(audioSources[name].clip);
+    }
+
+    public void SetBGM(String name, bool b)
+    {
+        if(b)
+        {
+            if(!bgmSources[name].isPlaying)
+                bgmSources[name].Play();
+        }
+        else
+        {
+            bgmSources[name].Stop();
+        }
     }
 }
