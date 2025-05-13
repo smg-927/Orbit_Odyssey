@@ -4942,7 +4942,7 @@ GameObject:
   - component: {fileID: 6116214936255961980}
   - component: {fileID: 5039146683490283735}
   - component: {fileID: 407484393126034384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mars
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -5002,6 +5002,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 20
   isgoal: 0
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1001 &1743783483883381609
 PrefabInstance:
   m_ObjectHideFlags: 0

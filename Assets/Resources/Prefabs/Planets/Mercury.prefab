@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8489341406904826051}
   - component: {fileID: 7794715764918430629}
   - component: {fileID: -1543646429206934997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mercury
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -71,6 +71,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 30
   isgoal: 0
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &4282783611812031376
 GameObject:
   m_ObjectHideFlags: 0

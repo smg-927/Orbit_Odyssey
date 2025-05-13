@@ -124,6 +124,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 0
   isgoal: 0
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1001 &1891040608685645533
 PrefabInstance:
   m_ObjectHideFlags: 0

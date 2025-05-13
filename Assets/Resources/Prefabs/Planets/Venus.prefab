@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 339005522359916310}
   - component: {fileID: 8475720167000291337}
   - component: {fileID: -3546894809330680371}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Venus
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -71,6 +71,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 20
   isgoal: 0
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &5666838051235109323
 GameObject:
   m_ObjectHideFlags: 0

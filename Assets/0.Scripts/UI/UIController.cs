@@ -75,7 +75,6 @@ public class UIController : MonoBehaviour
 
         
     }
-
     public void StartDragPlanet(GameObject ui_planet, GameObject prefab_planet)
     {
         if (GameManager.Instance.currentGameState != GameState.Mapping) return;

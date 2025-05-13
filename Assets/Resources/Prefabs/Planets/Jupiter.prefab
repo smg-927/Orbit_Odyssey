@@ -4856,7 +4856,7 @@ GameObject:
   - component: {fileID: 2146898690995153375}
   - component: {fileID: 2242019816279692004}
   - component: {fileID: 2628692145409557052}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Jupiter
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -4916,6 +4916,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 35
   isgoal: 0
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &9169326122060080890
 GameObject:
   m_ObjectHideFlags: 0

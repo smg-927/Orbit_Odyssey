@@ -4942,7 +4942,7 @@ GameObject:
   - component: {fileID: 5748000149909058119}
   - component: {fileID: 748221467132395219}
   - component: {fileID: 6101811345625091517}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Neptune
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -5002,6 +5002,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 30
   isgoal: 0
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1001 &6257882386059609030
 PrefabInstance:
   m_ObjectHideFlags: 0
