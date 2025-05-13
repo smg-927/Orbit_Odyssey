@@ -16,7 +16,7 @@ public class Window_StageSelect2 : Window
 
     public void Stage2()
     {
-        GameManager.Instance.GameStage = 4;
+        GameManager.Instance.GameStage = 2;
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
