@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private UIController uiController;
     public CameraController cameraController{get; private set;}
     public GameState currentGameState{get; private set;} = GameState.Menu;
+    public int GameStage = 0;
 
     //Audio Sources
     public Dictionary<string, AudioSource> audioSources = new Dictionary<string, AudioSource>();
@@ -78,13 +79,12 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-
+    
 #region 게임상태 이동 관련
     public void MenuStart()
     {
         SceneController.Instance.LoadSceneAsync("MainScreen");
     }
-
     public void StageSelectStart()
     {
         SceneController.Instance.LoadSceneAsync("StageSelect");
@@ -100,24 +100,26 @@ public class GameManager : MonoBehaviour
         {
             MappingReady(false);
         }
-        
     }
-
     public void MenuReady()
     {
         UIManager.Instance.NewSceneLoaded();
     }
-
     public void StageSelectReady()
     {
         UIManager.Instance.NewSceneLoaded();
     }
-
     public void MappingReady(bool isSceneLoaded)
     {
         if(isSceneLoaded)
         {
             UIManager.Instance.NewSceneLoaded();
+            GameObject stageprefab = Resources.Load<GameObject>("Prefabs/StagePrefabs/Stage" + GameStage);
+            if(stageprefab == null)
+            {
+                Debug.LogError("Stage" + GameStage + "이 없습니다.");
+            }
+            Instantiate(stageprefab, stageprefab.transform.position, stageprefab.transform.rotation);
         }
 
         if(spaceship != null)

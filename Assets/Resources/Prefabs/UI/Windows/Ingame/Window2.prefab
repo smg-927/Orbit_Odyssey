@@ -466,6 +466,7 @@ GameObject:
   - component: {fileID: 716036997787146291}
   - component: {fileID: 1548341479325523026}
   - component: {fileID: 3659361979361579608}
+  - component: {fileID: 6991049186627155837}
   m_Layer: 5
   m_Name: Window2
   m_TagString: Untagged
@@ -526,6 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c2f731a99698b4a8ac1a1e918b015c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planetClickController: {fileID: 6991049186627155837}
 --- !u!225 &716036997787146291
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -559,6 +561,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInitialwindow: 1
+--- !u!114 &6991049186627155837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411199107956235465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9491e47796e7daa4f900a73bfe90ccd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickableLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &4633997001411008431
 GameObject:
   m_ObjectHideFlags: 0

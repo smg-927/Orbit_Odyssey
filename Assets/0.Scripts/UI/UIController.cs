@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField] private PlanetClickController planetClickController;
     //Drag & Drop
     bool draging = false;
     GameObject choosingObj = null;
@@ -32,7 +33,6 @@ public class UIController : MonoBehaviour
             Debug.Log("Retry");
             Retry();
         }*/
-        
         if(GameManager.Instance.currentGameState != GameState.Mapping)
         {
             return;
@@ -43,7 +43,6 @@ public class UIController : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 SetAlphaForInventory(0);
-
                 Vector3 mousePos = Input.mousePosition;
                 mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
                 Vector3 worldPos = Camera.main.ScreenToWorldPoint(mousePos);
@@ -70,6 +69,21 @@ public class UIController : MonoBehaviour
                 InstalledPlanets.Add(dragingObj);
                 dragingObj = null;
                 draging = false;
+            }
+        }
+        else
+        {
+            if(Input.GetMouseButtonDown(1))
+            {
+                planetClickController.ClickDown(Input.mousePosition);
+            }
+            else if(Input.GetMouseButton(1))
+            {
+                planetClickController.ClickStay(Input.mousePosition);
+            }
+            else if(Input.GetMouseButtonUp(1))
+            {
+                planetClickController.ClickUp();
             }
         }
 

@@ -4962,10 +4962,10 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 7492201984201811136}
   - {fileID: 5825924436871034327}
   - {fileID: 6710466982268062674}
   - {fileID: 4889001554596315215}
-  - {fileID: 7492201984201811136}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &8276308367745523121
@@ -5003,9 +5003,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mass: 30
   isgoal: 0
-  clickableLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1 &7678850278100722622
 GameObject:
   m_ObjectHideFlags: 0

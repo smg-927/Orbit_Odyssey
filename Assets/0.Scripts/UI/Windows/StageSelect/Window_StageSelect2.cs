@@ -9,30 +9,35 @@ public class Window_StageSelect2 : Window
 
     public void Stage1()
     {
+        GameManager.Instance.GameStage = 4; // 추후 변경경
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
 
     public void Stage2()
     {
+        GameManager.Instance.GameStage = 4;
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
 
     public void Stage3()
     {
+        GameManager.Instance.GameStage = 4;
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
 
     public void Stage4()
     {
+        GameManager.Instance.GameStage = 4;
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
 
     public void Stage5()
     {
+        GameManager.Instance.GameStage = 4;
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
