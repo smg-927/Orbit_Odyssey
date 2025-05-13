@@ -5,6 +5,12 @@ public class PlanetClickController : MonoBehaviour
     [SerializeField] private LayerMask clickableLayer;
     private Planet selectedPlanet;
     private Vector3 dragOffset;
+    UIController uiController;
+
+    private void Awake()
+    {
+        uiController = FindAnyObjectByType<UIController>();
+    }
 
     public void ClickDown(Vector3 position)
     {
@@ -20,6 +26,7 @@ public class PlanetClickController : MonoBehaviour
 
         if (hits.Length > 0)
         {
+            GameManager.Instance.PlaySoundEffect("grab");
             selectedPlanet = hits[0].collider.GetComponent<Planet>();
             if (selectedPlanet == null)
             {
@@ -51,8 +58,25 @@ public class PlanetClickController : MonoBehaviour
     {
         if(selectedPlanet != null)
         {
+            GameManager.Instance.PlaySoundEffect("drop");
             Debug.Log($"행성 선택 해제: {selectedPlanet.name}");
             selectedPlanet = null;
+        }
+    }
+
+    public void ReturnToInventory(Vector3 position)
+    {
+        int clickableLayerMask = 1 << LayerMask.NameToLayer("Clickable");
+        Ray ray = Camera.main.ScreenPointToRay(position);
+        RaycastHit[] hits = Physics.RaycastAll(ray, 100f, clickableLayerMask);
+
+        if (hits.Length > 0)
+        {
+            Debug.Log("여기1");
+            GameObject target;
+            target = hits[0].collider.transform.gameObject;
+            uiController.ReturnToInventory(target);
+            Debug.Log("여기3");
         }
     }
 }

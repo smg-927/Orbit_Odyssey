@@ -48,18 +48,7 @@ public class UIController : MonoBehaviour
             {
                 SetAlphaForInventory(1);
 
-                GameManager.Instance.PlaySoundEffect("drop");
-                // for(int i=0;i< InventoryPlanets.Count;i++)
-                // {
-                //     if(InventoryPlanets[i] == choosingObj)
-                //     {
-                //         //Delete in Inventory
-                //         InventoryPlanets[i].GetComponent<Image>().enabled = false;
-                //         InventoryPlanets.RemoveAt(i);
-                //     }
-                // }
-                inventoryPlanets[dragingObj.name.Replace("(Clone)", "")]--;
-                inventoryImporter.UpdateInventory(dragingObj.name.Replace("(Clone)", ""), inventoryPlanets[dragingObj.name.Replace("(Clone)", "")]);
+                RemoveFromInventory();
                 //Install the planet on space
                 InstalledPlanets.Add(dragingObj);
                 dragingObj = null;
@@ -70,6 +59,7 @@ public class UIController : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(0))
             {
+                //좌클릭 드래그 - 배치된 행성 위치 수정
                 Vector3 mousePos = Input.mousePosition;
                 mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
                 planetClickController.ClickDown(mousePos);
@@ -83,6 +73,13 @@ public class UIController : MonoBehaviour
             else if(Input.GetMouseButtonUp(0))
             {
                 planetClickController.ClickUp();
+            }
+            else if(Input.GetMouseButtonDown(1))
+            {
+                //우클릭 - 배치된 행성 인벤토리로 넣기
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
+                planetClickController.ReturnToInventory(mousePos);
             }
         }
 
@@ -173,5 +170,27 @@ public class UIController : MonoBehaviour
         {
             obj.transform.GetChild(0).gameObject.GetComponent<MeshRenderer>().enabled = true;
         }
+    }
+
+    void RemoveFromInventory()
+    {
+        GameManager.Instance.PlaySoundEffect("drop");
+        inventoryPlanets[dragingObj.name.Replace("(Clone)", "")]--;
+        inventoryImporter.UpdateInventory(dragingObj.name.Replace("(Clone)", ""), inventoryPlanets[dragingObj.name.Replace("(Clone)", "")]);
+    }
+
+    public void ReturnToInventory(GameObject targetObj)
+    {
+        foreach (GameObject obj in InstalledPlanets)
+        {
+            if(obj == targetObj)
+            {
+                Destroy(obj);
+                break;
+            }
+        }
+        GameManager.Instance.PlaySoundEffect("relocation");
+        inventoryPlanets[targetObj.name.Replace("(Clone)", "")]++;
+        inventoryImporter.UpdateInventory(targetObj.name.Replace("(Clone)", ""), inventoryPlanets[targetObj.name.Replace("(Clone)", "")]);
     }
 }
