@@ -8,31 +8,18 @@ public class PlanetClickController : MonoBehaviour
 
     public void ClickDown(Vector3 position)
     {
-        int uiLayer = clickableLayer;
+        int clickableLayerMask = 1 << LayerMask.NameToLayer("Clickable");
         Ray ray = Camera.main.ScreenPointToRay(position);
-        RaycastHit[] hits = Physics.RaycastAll(ray, 100);
-        
-        Debug.Log($"=== 충돌한 오브젝트 목록 ({hits.Length}개) ===");
-        foreach (RaycastHit hit in hits)
-        {
-            Debug.Log($"- {hit.collider.name} (Layer: {hit.collider.gameObject.layer}, Distance: {hit.distance:F2})");
-        }
-        Debug.Log("========================");
 
-        if (hits.Length > 0)
+        if (Physics.Raycast(ray, out RaycastHit hit, 100f, clickableLayerMask))
         {
-            selectedPlanet = hits[0].collider.GetComponent<Planet>();
-            if(selectedPlanet == null)
-            {
-                Debug.Log("Planet이 없습니다.");
-            }
+            selectedPlanet = hit.collider.GetComponent<Planet>();
         }
     }
     public void ClickStay(Vector3 position)
     {
         if(selectedPlanet != null)
         {
-            Debug.Log("selectedPlanet : " + selectedPlanet.name);
             Vector3 newPosition = Camera.main.ScreenToWorldPoint(position);
             newPosition.z = 20f;
             selectedPlanet.transform.position = newPosition;

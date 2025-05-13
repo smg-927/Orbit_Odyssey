@@ -68,15 +68,19 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            if(Input.GetMouseButtonDown(1))
+            if(Input.GetMouseButtonDown(0))
             {
-                planetClickController.ClickDown(Input.mousePosition);
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
+                planetClickController.ClickDown(mousePos);
             }
-            else if(Input.GetMouseButton(1))
+            else if(Input.GetMouseButton(0))
             {
-                planetClickController.ClickStay(Input.mousePosition);
+                Vector3 mousePos = Input.mousePosition;
+                mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
+                planetClickController.ClickStay(mousePos);
             }
-            else if(Input.GetMouseButtonUp(1))
+            else if(Input.GetMouseButtonUp(0))
             {
                 planetClickController.ClickUp();
             }
