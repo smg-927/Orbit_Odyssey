@@ -10,12 +10,33 @@ public class PlanetClickController : MonoBehaviour
     {
         int clickableLayerMask = 1 << LayerMask.NameToLayer("Clickable");
         Ray ray = Camera.main.ScreenPointToRay(position);
+        RaycastHit[] hits = Physics.RaycastAll(ray, 100f, clickableLayerMask);
 
-        if (Physics.Raycast(ray, out RaycastHit hit, 100f, clickableLayerMask))
+        Debug.Log($"=== 충돌한 오브젝트 목록 ({hits.Length}개) ===");
+        foreach (RaycastHit hit in hits)
         {
-            selectedPlanet = hit.collider.GetComponent<Planet>();
+            Debug.Log($"- {hit.collider.name} (Layer: {hit.collider.gameObject.layer})");
+        }
+
+        if (hits.Length > 0)
+        {
+            selectedPlanet = hits[0].collider.GetComponent<Planet>();
+            if (selectedPlanet == null)
+            {
+                Debug.LogWarning($"클릭한 오브젝트 {hits[0].collider.name}에 Planet 컴포넌트가 없습니다.");
+            }
+            else
+            {
+                Debug.Log($"행성 선택됨: {selectedPlanet.name}");
+            }
+        }
+        else
+        {
+            Debug.Log("클릭 가능한 오브젝트가 없습니다.");
+            selectedPlanet = null;
         }
     }
+
     public void ClickStay(Vector3 position)
     {
         if(selectedPlanet != null)
@@ -25,10 +46,12 @@ public class PlanetClickController : MonoBehaviour
             selectedPlanet.transform.position = newPosition;
         }
     }
+
     public void ClickUp()
     {
         if(selectedPlanet != null)
         {
+            Debug.Log($"행성 선택 해제: {selectedPlanet.name}");
             selectedPlanet = null;
         }
     }

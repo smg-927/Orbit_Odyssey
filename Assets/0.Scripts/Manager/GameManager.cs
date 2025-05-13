@@ -150,15 +150,16 @@ public class GameManager : MonoBehaviour
 
         UIManager.Instance.HideWindow("Window3");
         UIManager.Instance.HideWindow("Window4");
+
         uiController.SetAlphaForInventory(1);
         uiController.SetPlanetGravityEffectOn();
-        Time.timeScale = 0;
     }
 
     public void PlayingStart()
     {
         Time.timeScale = 1;
         spaceship.GetComponent<Spaceship>().GameStart();
+
         if(uiController == null) 
         {
             uiController = FindAnyObjectByType<UIController>();
