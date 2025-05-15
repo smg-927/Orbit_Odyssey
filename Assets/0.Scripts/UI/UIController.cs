@@ -181,11 +181,12 @@ public class UIController : MonoBehaviour
 
     public void ReturnToInventory(GameObject targetObj)
     {
-        foreach (GameObject obj in InstalledPlanets)
+        for(int i=0; i< InstalledPlanets.Count; i++)
         {
-            if(obj == targetObj)
+            if (InstalledPlanets[i] == targetObj)
             {
-                Destroy(obj);
+                Destroy(InstalledPlanets[i]);
+                InstalledPlanets.RemoveAt(i);
                 break;
             }
         }
