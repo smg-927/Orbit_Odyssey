@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   list_shipStartPos:
   - {x: -25, y: -5}
+  - {x: -25, y: -2}
   - {x: -25, y: -5}
-  - {x: -25, y: 3}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  - {x: 0, y: -5}
+  - {x: -25, y: -5}

@@ -5000,11 +5000,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be6f9e0aff780a4c937b1faf8e080ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 20
+  mass: 12
   isgoal: 0
-  clickableLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!1001 &1743783483883381609
 PrefabInstance:
   m_ObjectHideFlags: 0

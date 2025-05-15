@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c74ed13c1fb0a4ba2a6915772728dc, type: 3}
   m_Name: Inventory_stage2
   m_EditorClassIdentifier: 
-  Venus: 2
-  Mars: 1
-  Jupiter: 0
-  Saturn: 0
+  Venus: 0
+  Mars: 0
+  Jupiter: 1
+  Saturn: 1
