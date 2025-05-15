@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private UIController uiController;
     public CameraController cameraController{get; private set;}
     public GameState currentGameState{get; private set;} = GameState.Menu;
-    public int GameStage = 0;
+    public int GameStage { get; set; } = 0;
 
     //Audio Sources
     public Dictionary<string, AudioSource> audioSources = new Dictionary<string, AudioSource>();

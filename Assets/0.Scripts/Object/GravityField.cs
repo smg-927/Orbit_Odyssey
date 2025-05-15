@@ -21,7 +21,7 @@ public class GravityField : MonoBehaviour
         if (other.gameObject.CompareTag("Spaceship"))
         {
             Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            if (rb != null)
+            if (rb != null && GameManager.Instance.currentGameState == GameState.Playing)
             {
                 Vector3 direction = (transform.position - other.transform.position).normalized;
 

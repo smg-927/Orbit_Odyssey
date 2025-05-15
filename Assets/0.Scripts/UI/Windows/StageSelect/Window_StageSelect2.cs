@@ -23,7 +23,7 @@ public class Window_StageSelect2 : Window
 
     public void Stage3()
     {
-        GameManager.Instance.GameStage = 4;
+        GameManager.Instance.GameStage = 3;
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
@@ -37,7 +37,7 @@ public class Window_StageSelect2 : Window
 
     public void Stage5()
     {
-        GameManager.Instance.GameStage = 4;
+        GameManager.Instance.GameStage = 5;
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }

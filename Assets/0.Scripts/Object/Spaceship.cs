@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Spaceship : MonoBehaviour
 {
@@ -8,9 +9,14 @@ public class Spaceship : MonoBehaviour
     [SerializeField] float rotationSpeed = 15;
     private Rigidbody rb;
     private Vector3 previousPosition;
+    private ShipStartPos shipStartPos;
 
     private void Awake()
     {
+        shipStartPos = Resources.Load<ShipStartPos>("DataTable/ShipStartPos/ShipStartPos");
+        Vector2 startPos = shipStartPos.list_shipStartPos[GameManager.Instance.GameStage - 1];
+        transform.position = new Vector3(startPos.x, startPos.y, 20);
+
         rb = GetComponent<Rigidbody>();
         previousPosition = transform.position;
     }

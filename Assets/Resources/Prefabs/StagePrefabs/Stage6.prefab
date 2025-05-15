@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2948675637361840722}
   m_Layer: 0
-  m_Name: Stage2
+  m_Name: Stage6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,10 +29,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2338599071648394921}
+  - {fileID: 5940646645367134746}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &835919490111680414
+--- !u!1001 &8763157743507790637
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -42,11 +42,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3165352345345687863, guid: 7685bc1f69dae1c428acee8da04ce241, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.3
+      value: -8.773686
       objectReference: {fileID: 0}
     - target: {fileID: 3165352345345687863, guid: 7685bc1f69dae1c428acee8da04ce241, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.3
+      value: 6.301516
       objectReference: {fileID: 0}
     - target: {fileID: 3165352345345687863, guid: 7685bc1f69dae1c428acee8da04ce241, type: 3}
       propertyPath: m_LocalPosition.z
@@ -89,8 +89,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7685bc1f69dae1c428acee8da04ce241, type: 3}
---- !u!4 &2338599071648394921 stripped
+--- !u!4 &5940646645367134746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3165352345345687863, guid: 7685bc1f69dae1c428acee8da04ce241, type: 3}
-  m_PrefabInstance: {fileID: 835919490111680414}
+  m_PrefabInstance: {fileID: 8763157743507790637}
   m_PrefabAsset: {fileID: 0}
