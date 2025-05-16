@@ -1,17 +1,8 @@
 fileFormatVersion: 2
-guid: 91d202aeca59041238b6784ce9aecde4
-timeCreated: 1518493010
-licenseType: Store
+guid: f76c70281767a80428db9a347690877f
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 0
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 90219
-  packageName: Planets of the Solar System 3D
-  packageVersion: 2.0
-  assetPath: Assets/Planets of the Solar System 3D/Materials/URP_Venus_Lod.mat
-  uploadId: 483801

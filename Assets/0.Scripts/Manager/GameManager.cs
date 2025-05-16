@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     private UIController uiController;
     public CameraController cameraController{get; private set;}
     public GameState currentGameState{get; private set;} = GameState.Menu;
+    public int AvailableStage = 1;
     public int GameStage { get; set; } = 0;
 
     //Audio Sources

@@ -532,7 +532,7 @@ PrefabInstance:
     - target: {fileID: 1688592515213185953, guid: c294b99f93defa948808d715392f6029, type: 3}
       propertyPath: spaceshipPrefab
       value: 
-      objectReference: {fileID: 5247024646468144603, guid: 1c0bc626bc10d064b968015418e5be01, type: 3}
+      objectReference: {fileID: 856218123417159569, guid: 73f9b617b1154054580e14462c64f445, type: 3}
     - target: {fileID: 6941451940339849195, guid: c294b99f93defa948808d715392f6029, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.4151487
