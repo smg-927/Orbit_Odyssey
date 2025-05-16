@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     private UIController uiController;
     public CameraController cameraController{get; private set;}
     public GameState currentGameState{get; private set;} = GameState.Menu;
-    public int AvailableStage = 1;
+    public int AvailableStage = 10;
     public int GameStage { get; set; } = 0;
 
     //Audio Sources
@@ -138,9 +138,9 @@ public class GameManager : MonoBehaviour
         {
             Destroy(spaceship);
         }
-        spaceship = Instantiate(spaceshipPrefab, spaceshipPrefab.transform.position, Quaternion.identity);
+        spaceship = Instantiate(spaceshipPrefab, spaceshipPrefab.transform.position, spaceshipPrefab.transform.rotation);
 
-        if(cameraController == null)
+        if (cameraController == null)
         {
             cameraController = FindAnyObjectByType<CameraController>();
             if(cameraController == null)

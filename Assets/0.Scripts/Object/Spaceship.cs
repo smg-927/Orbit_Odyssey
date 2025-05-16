@@ -16,7 +16,6 @@ public class Spaceship : MonoBehaviour
         shipStartPos = Resources.Load<ShipStartPos>("DataTable/ShipStartPos/ShipStartPos");
         Vector2 startPos = shipStartPos.list_shipStartPos[GameManager.Instance.GameStage - 1];
         transform.position = new Vector3(startPos.x, startPos.y, 20);
-
         rb = GetComponent<Rigidbody>();
         previousPosition = transform.position;
     }
