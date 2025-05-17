@@ -32,7 +32,7 @@ public class UIController : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance.currentGameState != GameState.Mapping)
+        if (GameManager.Instance.currentGameState != GameState.Mapping)
         {
             return;
         }
@@ -54,6 +54,7 @@ public class UIController : MonoBehaviour
 
                 RemoveFromInventory();
                 //Install the planet on space
+                Debug.Log("¼³Ä¡");
                 InstalledPlanets.Add(dragingObj);
                 dragingObj = null;
                 draging = false;
@@ -92,6 +93,9 @@ public class UIController : MonoBehaviour
     public void StartDragPlanet(GameObject ui_planet, GameObject prefab_planet)
     {
         if (GameManager.Instance.currentGameState != GameState.Mapping) return;
+        Debug.Log(prefab_planet.name);
+        Debug.Log(inventoryPlanets[prefab_planet.name]);
+        if (inventoryPlanets[prefab_planet.name] == 0) return;
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
@@ -188,17 +192,19 @@ public class UIController : MonoBehaviour
 
     public void ReturnToInventory(GameObject targetObj)
     {
-        for(int i=0; i< InstalledPlanets.Count; i++)
+        string planetName = targetObj.name.Replace("(Clone)", "");
+        
+        for (int i=0; i< InstalledPlanets.Count; i++)
         {
             if (InstalledPlanets[i] == targetObj)
             {
-                Destroy(InstalledPlanets[i]);
                 InstalledPlanets.RemoveAt(i);
                 break;
             }
         }
+        Destroy(targetObj);
         GameManager.Instance.PlaySoundEffect("relocation");
-        inventoryPlanets[targetObj.name.Replace("(Clone)", "")]++;
+        inventoryPlanets[planetName]++;
         inventoryImporter.UpdateInventory(targetObj.name.Replace("(Clone)", ""), inventoryPlanets[targetObj.name.Replace("(Clone)", "")]);
     }
 }

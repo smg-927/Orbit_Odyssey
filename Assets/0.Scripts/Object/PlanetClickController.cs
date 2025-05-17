@@ -72,11 +72,9 @@ public class PlanetClickController : MonoBehaviour
 
         if (hits.Length > 0)
         {
-            Debug.Log("여기1");
             GameObject target;
             target = hits[0].collider.transform.gameObject;
             uiController.ReturnToInventory(target);
-            Debug.Log("여기3");
         }
     }
 }
