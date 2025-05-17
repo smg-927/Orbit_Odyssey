@@ -4893,7 +4893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be6f9e0aff780a4c937b1faf8e080ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mass: 120
+  mass: 105
   isgoal: 0
 --- !u!135 &248754249403397431
 SphereCollider:

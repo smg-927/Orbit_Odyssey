@@ -211,8 +211,8 @@ public class GameManager : MonoBehaviour
 #endregion
     public void ChangeScene(string sceneName)
     {
-        SceneController.Instance.LoadSceneAsync(sceneName);
         GameManager.Instance.currentGameState = GameState.Mapping;
+        SceneController.Instance.LoadSceneAsync(sceneName);
     }
 
     IEnumerator GameOverCoroutine()

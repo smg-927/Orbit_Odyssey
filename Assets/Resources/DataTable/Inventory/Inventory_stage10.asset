@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Venus: 1
   Mars: 1
-  Jupiter: 0
+  Jupiter: 1
   Saturn: 1
+  Neptune: 1
