@@ -15,4 +15,5 @@ MonoBehaviour:
   Venus: 1
   Mars: 1
   Jupiter: 0
-  Saturn: 1
+  Saturn: 0
+  Neptune: 0
