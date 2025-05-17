@@ -127,6 +127,7 @@ public class UIController : MonoBehaviour
         inventoryImporter.UpdateInventory("Venus", inventoryPlanets["Venus"]);
         inventoryImporter.UpdateInventory("Mars", inventoryPlanets["Mars"]);
         inventoryImporter.UpdateInventory("Jupiter", inventoryPlanets["Jupiter"]);
+        inventoryImporter.UpdateInventory("Neptune", inventoryPlanets["Neptune"]);
         inventoryImporter.UpdateInventory("Saturn", inventoryPlanets["Saturn"]);
         // foreach (GameObject obj in InventoryPlanets)
         // {
@@ -154,6 +155,7 @@ public class UIController : MonoBehaviour
         inventoryPlanets.Add("Venus", inventory.Venus);
         inventoryPlanets.Add("Mars", inventory.Mars);
         inventoryPlanets.Add("Jupiter", inventory.Jupiter);
+        inventoryPlanets.Add("Neptune", inventory.Neptune);
         inventoryPlanets.Add("Saturn", inventory.Saturn);
     }
 

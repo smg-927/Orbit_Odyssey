@@ -6,5 +6,6 @@ public class Inventory : ScriptableObject
     public int Venus;
     public int Mars;
     public int Jupiter;
+    public int Neptune;
     public int Saturn;
 }

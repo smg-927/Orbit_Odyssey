@@ -9,6 +9,7 @@ public class InventoryImporter : MonoBehaviour
     public TextMeshProUGUI VenusText;
     public TextMeshProUGUI MarsText;
     public TextMeshProUGUI JupiterText;
+    public TextMeshProUGUI NeptuneText;
     public TextMeshProUGUI SaturnText;
 
     void Awake()
@@ -30,11 +31,13 @@ public class InventoryImporter : MonoBehaviour
         planetTexts.Add("Venus", VenusText.gameObject);
         planetTexts.Add("Mars", MarsText.gameObject);
         planetTexts.Add("Jupiter", JupiterText.gameObject);
+        planetTexts.Add("Neptune", NeptuneText.gameObject);
         planetTexts.Add("Saturn", SaturnText.gameObject);
 
         planetTexts["Venus"].GetComponent<TextMeshProUGUI>().text = inventory.Venus.ToString();
         planetTexts["Mars"].GetComponent<TextMeshProUGUI>().text = inventory.Mars.ToString();
         planetTexts["Jupiter"].GetComponent<TextMeshProUGUI>().text = inventory.Jupiter.ToString();
+        planetTexts["Neptune"].GetComponent<TextMeshProUGUI>().text = inventory.Neptune.ToString();
         planetTexts["Saturn"].GetComponent<TextMeshProUGUI>().text = inventory.Saturn.ToString();
     }
 
