@@ -353,6 +353,10 @@ PrefabInstance:
       propertyPath: whitehole
       value: 
       objectReference: {fileID: 7600161896449603142}
+    - target: {fileID: 5168239325965240982, guid: 6cf79e9985f8b8e4a94e1e414d4209e8, type: 3}
+      propertyPath: whitehole
+      value: 
+      objectReference: {fileID: 7600161896449603142}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

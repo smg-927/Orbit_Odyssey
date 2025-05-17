@@ -4842,7 +4842,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542956516596436980}
-  - component: {fileID: 2269878171966250186}
+  - component: {fileID: 5168239325965240982}
+  - component: {fileID: 5651607127942203776}
   m_Layer: 0
   m_Name: Black Hole
   m_TagString: Untagged
@@ -4870,7 +4871,7 @@ Transform:
   - {fileID: 3031522513615738292}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
---- !u!114 &2269878171966250186
+--- !u!114 &5168239325965240982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4879,11 +4880,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1362279666177859935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be6f9e0aff780a4c937b1faf8e080ff, type: 3}
+  m_Script: {fileID: 11500000, guid: b979481c488ad2f4691e18d97081fd45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mass: 30
   isgoal: 0
+  whitehole: {fileID: 0}
+--- !u!135 &5651607127942203776
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362279666177859935}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4298058262625782943
 GameObject:
   m_ObjectHideFlags: 0
@@ -5100,7 +5123,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5266,6 +5289,14 @@ PrefabInstance:
     - target: {fileID: 3813319595519576090, guid: 622daaa095fc3374cb51b6167934011e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037519632596771598, guid: 622daaa095fc3374cb51b6167934011e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592563225825137918, guid: 622daaa095fc3374cb51b6167934011e, type: 3}
+      propertyPath: scale
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
