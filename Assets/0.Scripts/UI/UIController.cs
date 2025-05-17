@@ -143,6 +143,7 @@ public class UIController : MonoBehaviour
 
     void SetInventoryObj()
     {
+        Debug.Log("SetInventoryObj");
         Inventory inventory = inventoryImporter.inventory;
         if(inventory == null)
         {

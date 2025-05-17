@@ -28,7 +28,7 @@ public class Window_Ingame4 : Window
         else
         {
             GameManager.Instance.GameStage++;
-            GameManager.Instance.ChangeGameState("Mapping");
+            GameManager.Instance.ChangeScene("Ingame");
         }
     }
 }

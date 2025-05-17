@@ -164,7 +164,10 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.HideWindow("Window4");
 
         uiController.SetAlphaForInventory(1);
-        uiController.SetPlanetGravityEffectOn();
+        if(!isSceneLoaded)
+        {
+            uiController.SetPlanetGravityEffectOn();
+        }
     }
 
     public void PlayingStart()

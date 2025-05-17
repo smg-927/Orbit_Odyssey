@@ -38,18 +38,15 @@ public class Window_StageSelect2 : Window
 
     void Start()
     {
-        Debug.Log("AvailableStage: " + GameManager.Instance.AvailableStage);
         foreach(var button in stageButtons)
         {
             if(button.Key > GameManager.Instance.AvailableStage)
             {
-                Debug.Log("Stage"+button.Key + " is locked");
                 button.Value.transform.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.3f);
                 button.Value.interactable = false;
             }
             else
             {
-                Debug.Log("Stage"+button.Key + " is unlocked");
                 button.Value.transform.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
                 button.Value.interactable = true;
             }
