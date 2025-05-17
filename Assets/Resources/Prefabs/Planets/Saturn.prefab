@@ -4940,8 +4940,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2600517171759709985}
-  - component: {fileID: 8276308367745523121}
   - component: {fileID: -2212590234076204147}
+  - component: {fileID: 383350286263184207}
   m_Layer: 9
   m_Name: Saturn
   m_TagString: TrackingObject
@@ -4959,7 +4959,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6119082914894061023}
@@ -4968,7 +4968,21 @@ Transform:
   - {fileID: 4889001554596315215}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &8276308367745523121
+--- !u!114 &-2212590234076204147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5794361029782716353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9be6f9e0aff780a4c937b1faf8e080ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 90
+  isgoal: 0
+--- !u!135 &383350286263184207
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4987,22 +5001,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-2212590234076204147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5794361029782716353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9be6f9e0aff780a4c937b1faf8e080ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mass: 30
-  isgoal: 0
 --- !u!1 &7678850278100722622
 GameObject:
   m_ObjectHideFlags: 0
@@ -5097,9 +5097,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2600517171759709985}
     m_Modifications:
+    - target: {fileID: -2528730601555304552, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
+      propertyPath: scale
+      value: 19
+      objectReference: {fileID: 0}
     - target: {fileID: 4313154276768703238, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
       propertyPath: m_Name
       value: GravityFieldwithEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484194629676122386, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484194629676122386, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484194629676122386, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5484194629676122386, guid: a2c10586f673a234db8233aff82cd30f, type: 3}
       propertyPath: m_LocalPosition.x

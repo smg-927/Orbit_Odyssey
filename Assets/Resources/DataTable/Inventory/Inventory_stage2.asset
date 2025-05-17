@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Inventory_stage2
   m_EditorClassIdentifier: 
   Venus: 0
-  Mars: 0
+  Mars: 1
   Jupiter: 1
-  Neptune: 1
   Saturn: 1
+  Neptune: 0
