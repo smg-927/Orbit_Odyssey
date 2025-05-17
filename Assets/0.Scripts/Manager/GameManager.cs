@@ -52,7 +52,10 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameState(GameState.Menu.ToString());
     }
-
+    private void Update()
+    {
+        Debug.Log(currentGameState);
+    }
     public void ChangeGameState(string newGameState)
     {
         currentGameState = (GameState)Enum.Parse(typeof(GameState), newGameState);
@@ -209,6 +212,7 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneController.Instance.LoadSceneAsync(sceneName);
+        GameManager.Instance.currentGameState = GameState.Mapping;
     }
 
     IEnumerator GameOverCoroutine()

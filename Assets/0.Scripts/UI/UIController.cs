@@ -23,6 +23,10 @@ public class UIController : MonoBehaviour
     {
         group_inventory = transform.GetComponent<CanvasGroup>();
         inventoryImporter = transform.GetComponent<InventoryImporter>();
+    }
+
+    private void Start()
+    {
         SetInventoryObj();
     }
 
