@@ -10,25 +10,46 @@ public class Window_StageSelect2 : Window
         foreach(Transform child in transform)
         {
             Button button = child.GetComponent<Button>();
-            if (button != null)
+            if (button != null && button.name != "Home")
             {
-                int stageNumber = int.Parse(button.name.Replace("Stage", ""));
-                stageButtons.Add(stageNumber, button);
+                string buttonName = button.name;
+                if (buttonName.StartsWith("Stage"))
+                {
+                    string numberStr = buttonName.Replace("Stage", "");
+                    if (int.TryParse(numberStr, out int stageNumber))
+                    {
+                        if (!stageButtons.ContainsKey(stageNumber))
+                        {
+                            stageButtons.Add(stageNumber, button);
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"중복된 스테이지 번호가 발견되었습니다: Stage{stageNumber}");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogWarning($"스테이지 번호를 파싱할 수 없습니다: {buttonName}");
+                    }
+                }
             }
         }
     }
 
     void Start()
     {
+        Debug.Log("AvailableStage: " + GameManager.Instance.AvailableStage);
         foreach(var button in stageButtons)
         {
-            if(GameManager.Instance.AvailableStage > button.Key)
+            if(button.Key > GameManager.Instance.AvailableStage)
             {
+                Debug.Log("Stage"+button.Key + " is locked");
                 button.Value.transform.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.3f);
                 button.Value.interactable = false;
             }
             else
             {
+                Debug.Log("Stage"+button.Key + " is unlocked");
                 button.Value.transform.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
                 button.Value.interactable = true;
             }
@@ -92,10 +113,6 @@ public class Window_StageSelect2 : Window
             GameManager.Instance.GameStage = stage;
             GameManager.Instance.PlaySoundEffect("button1");
             GameManager.Instance.ChangeGameState("Mapping");
-        }
-        else
-        {
-            //거부
         }
     }
     public void ReturnToMenu()

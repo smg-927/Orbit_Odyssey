@@ -16,4 +16,19 @@ public class Window_Ingame4 : Window
         GameManager.Instance.PlaySoundEffect("button1");
         GameManager.Instance.ChangeGameState("Mapping");
     }
+
+    public void NextButton()
+    {
+        GameManager.Instance.PlaySoundEffect("button1");
+
+        if(GameManager.Instance.GameStage == 10)
+        {
+            GameManager.Instance.ChangeGameState("StageSelect");
+        }
+        else
+        {
+            GameManager.Instance.GameStage++;
+            GameManager.Instance.ChangeGameState("Mapping");
+        }
+    }
 }

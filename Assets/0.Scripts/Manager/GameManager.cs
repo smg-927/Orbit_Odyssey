@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
     private UIController uiController;
     public CameraController cameraController{get; private set;}
     public GameState currentGameState{get; private set;} = GameState.Menu;
-    public int AvailableStage = 10;
-    public int GameStage { get; set; } = 0;
+    public int AvailableStage {get; private set;} = 10;
+    public int GameStage { get; set; } = 1;
 
     //Audio Sources
     public Dictionary<string, AudioSource> audioSources = new Dictionary<string, AudioSource>();
@@ -195,6 +195,10 @@ public class GameManager : MonoBehaviour
 
     private void WinStart()
     {
+        if(GameStage == AvailableStage)
+        {
+            AvailableStage++;
+        }
         UIManager.Instance.SetwindowWithoutclosing("Window4");
     }
 
