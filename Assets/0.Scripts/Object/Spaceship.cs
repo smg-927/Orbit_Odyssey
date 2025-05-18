@@ -66,8 +66,8 @@ public class Spaceship : MonoBehaviour
         Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
         
         // 화면 밖으로 나갔는지 확인 (x, y 좌표가 0보다 작거나 1보다 큰 경우)
-        if (viewportPosition.x < 0 || viewportPosition.x > 1 || 
-            viewportPosition.y < 0 || viewportPosition.y > 1)
+        if (viewportPosition.x < -0.1f || viewportPosition.x > 1.1f || 
+            viewportPosition.y < -0.1f || viewportPosition.y > 1.1f)
         {
             GameManager.Instance.PlaySoundEffect("destroy");
             Die();
