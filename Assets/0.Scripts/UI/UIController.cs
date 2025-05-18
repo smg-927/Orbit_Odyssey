@@ -37,8 +37,7 @@ public class UIController : MonoBehaviour
         {
             return;
         }
-
-        if(draging && dragingObj != null)
+        if (draging && dragingObj != null)
         {
             if (Input.GetMouseButton(0))
             {
@@ -142,12 +141,13 @@ public class UIController : MonoBehaviour
 
     public void Retry()
     {
+        SetInventoryObj();
         //Reset planets in inventory
-        Debug.Log("Venus: " + inventoryPlanets["Venus"]);
-        Debug.Log("Mars: " + inventoryPlanets["Mars"]);
-        Debug.Log("Jupiter: " + inventoryPlanets["Jupiter"]);
-        Debug.Log("Neptune: " + inventoryPlanets["Neptune"]);
-        Debug.Log("Saturn: " + inventoryPlanets["Saturn"]);
+        /* Debug.Log("Venus: " + inventoryPlanets["Venus"]);
+         Debug.Log("Mars: " + inventoryPlanets["Mars"]);
+         Debug.Log("Jupiter: " + inventoryPlanets["Jupiter"]);
+         Debug.Log("Neptune: " + inventoryPlanets["Neptune"]);
+         Debug.Log("Saturn: " + inventoryPlanets["Saturn"]);*/
         inventoryImporter.UpdateInventory("Venus", inventoryPlanets["Venus"]);
         inventoryImporter.UpdateInventory("Mars", inventoryPlanets["Mars"]);
         inventoryImporter.UpdateInventory("Jupiter", inventoryPlanets["Jupiter"]);
@@ -165,7 +165,6 @@ public class UIController : MonoBehaviour
         }
         InstalledPlanets.Clear();
         GameManager.Instance.ChangeGameState("Mapping");
-        SetInventoryObj();
     }
 
     void SetInventoryObj()

@@ -224,6 +224,14 @@ public class GameManager : MonoBehaviour
 
     public void Retry()
     {
+        if (uiController == null)
+        {
+            uiController = FindAnyObjectByType<UIController>();
+            if (uiController == null)
+            {
+                Debug.LogError("UIController가 없습니다.");
+            }
+        }
         uiController.Retry();
     }
 

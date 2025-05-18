@@ -15,7 +15,7 @@ public class InventoryImporter : MonoBehaviour
     void Awake()
     {
         inventory = Resources.Load<Inventory>("DataTable/Inventory/Inventory_stage" + GameManager.Instance.GameStage);
-        if(inventory == null)
+        if (inventory == null)
         {
             Debug.LogError("Inventory not found");
             return;
