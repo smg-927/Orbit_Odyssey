@@ -87,6 +87,16 @@ public class PlanetClickController : MonoBehaviour
 
     public void ReturnToInventoryByRay(Vector3 position)
     {
+        if (uiController == null)
+        {
+            uiController = FindAnyObjectByType<UIController>();
+            if (uiController == null)
+            {
+                Debug.LogError("UIController not found!");
+                return;
+            }
+        }
+
         int clickableLayerMask = 1 << LayerMask.NameToLayer("Clickable");
         Ray ray = Camera.main.ScreenPointToRay(position);
         RaycastHit[] hits = Physics.RaycastAll(ray, 100f, clickableLayerMask);

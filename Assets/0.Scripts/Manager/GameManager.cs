@@ -107,11 +107,13 @@ public class GameManager : MonoBehaviour
     {
         SceneController.Instance.LoadSceneAsync("MainScreen");
         SetBGM("main", true);
+        SetBGM("Ingame", false);
     }
     public void StageSelectStart()
     {
         SceneController.Instance.LoadSceneAsync("StageSelect");
         SetBGM("main", true);
+        SetBGM("Ingame", false);
     }
     private void MappingStart()
     {
@@ -120,6 +122,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Move to Ingame");
             SceneController.Instance.LoadSceneAsync("Ingame");
             SetBGM("main", false);
+            SetBGM("Ingame", true);
         }
         else
         {
