@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //Debug.Log(currentGameState);
-        if(Input.GetKeyDown(KeyCode.F1))
+        if(Input.GetKeyDown(KeyCode.P))
         {
             BackdoorinputforDebug++;
             if(BackdoorinputforDebug > 7)
