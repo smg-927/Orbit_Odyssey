@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     private UIController uiController;
     public CameraController cameraController{get; private set;}
     public GameState currentGameState{get; private set;} = GameState.Menu;
-    public int AvailableStage {get; private set;} = 10;
+    public int AvailableStage {get; private set;} = 1;
     public int GameStage { get; set; } = 1;
+
+    public int BackdoorinputforDebug = 0;
 
     //Audio Sources
     public Dictionary<string, AudioSource> audioSources = new Dictionary<string, AudioSource>();
@@ -54,7 +56,15 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(currentGameState);
+        //Debug.Log(currentGameState);
+        if(Input.GetKeyDown(KeyCode.F1))
+        {
+            BackdoorinputforDebug++;
+            if(BackdoorinputforDebug > 7)
+            {
+                AvailableStage = 10;
+            }
+        }
     }
     public void ChangeGameState(string newGameState)
     {
