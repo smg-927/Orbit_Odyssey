@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3813319595519576090}
   - component: {fileID: 7592563225825137918}
   - component: {fileID: 7037519632596771598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GravityField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e344caf0db9661c458e39e019869cf3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scale: 10
 --- !u!135 &7037519632596771598
 SphereCollider:
   m_ObjectHideFlags: 0

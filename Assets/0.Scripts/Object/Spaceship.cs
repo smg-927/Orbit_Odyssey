@@ -10,6 +10,7 @@ public class Spaceship : MonoBehaviour
     private Rigidbody rb;
     private Vector3 previousPosition;
     private ShipStartPos shipStartPos;
+    private BoxCollider collider;
 
     private void Awake()
     {
@@ -18,6 +19,8 @@ public class Spaceship : MonoBehaviour
         transform.position = new Vector3(startPos.x, startPos.y, 20);
         rb = GetComponent<Rigidbody>();
         previousPosition = transform.position;
+        collider = GetComponent<BoxCollider>();
+        collider.enabled = false;
     }
 
     public void GameStart()
@@ -29,6 +32,9 @@ public class Spaceship : MonoBehaviour
     {
         Move();
         CheckOutOfBounds();
+
+        if (GameManager.Instance.currentGameState == GameState.Playing) collider.enabled = true;
+        else collider.enabled = false;
     }
 
     private void Move()

@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     bool draging = false;
     GameObject choosingObj = null;
     GameObject dragingObj = null;
+    DragableObj dragingObj_state = null;
 
     //Inventory
     InventoryImporter inventoryImporter;
@@ -52,12 +53,24 @@ public class UIController : MonoBehaviour
             {
                 SetAlphaForInventory(1);
 
-                RemoveFromInventory();
-                //Install the planet on space
-                Debug.Log("설치");
-                InstalledPlanets.Add(dragingObj);
-                dragingObj = null;
-                draging = false;
+                if(!dragingObj_state.isOverlaped)
+                {
+                    // 설치 가능
+                    RemoveFromInventory();
+                    InstalledPlanets.Add(dragingObj);
+
+                    dragingObj = null;
+                    dragingObj_state = null;
+                    draging = false;
+                }
+                else
+                {
+                    // 겹침, 설치 불가
+                    GameManager.Instance.PlaySoundEffect("relocation");
+                    dragingObj_state = null;
+                    Destroy(dragingObj);
+                    draging = false;
+                }
             }
         }
         else
@@ -84,7 +97,7 @@ public class UIController : MonoBehaviour
                 //우클릭 - 배치된 행성 인벤토리로 넣기
                 Vector3 mousePos = Input.mousePosition;
                 mousePos.z = Mathf.Abs(Camera.main.transform.position.z);
-                planetClickController.ReturnToInventory(mousePos);
+                planetClickController.ReturnToInventoryByRay(mousePos);
             }
         }
 
@@ -93,8 +106,6 @@ public class UIController : MonoBehaviour
     public void StartDragPlanet(GameObject ui_planet, GameObject prefab_planet)
     {
         if (GameManager.Instance.currentGameState != GameState.Mapping) return;
-        Debug.Log(prefab_planet.name);
-        Debug.Log(inventoryPlanets[prefab_planet.name]);
         if (inventoryPlanets[prefab_planet.name] == 0) return;
 
         Vector3 mousePos = Input.mousePosition;
@@ -105,6 +116,7 @@ public class UIController : MonoBehaviour
         GameManager.Instance.PlaySoundEffect("grab");
         choosingObj = ui_planet;
         dragingObj = Instantiate(prefab_planet, worldPos, Quaternion.identity);
+        dragingObj_state = dragingObj.GetComponent<DragableObj>();
         draging = true;
     }
 
@@ -131,12 +143,17 @@ public class UIController : MonoBehaviour
     public void Retry()
     {
         //Reset planets in inventory
-        SetInventoryObj();
+        Debug.Log("Venus: " + inventoryPlanets["Venus"]);
+        Debug.Log("Mars: " + inventoryPlanets["Mars"]);
+        Debug.Log("Jupiter: " + inventoryPlanets["Jupiter"]);
+        Debug.Log("Neptune: " + inventoryPlanets["Neptune"]);
+        Debug.Log("Saturn: " + inventoryPlanets["Saturn"]);
         inventoryImporter.UpdateInventory("Venus", inventoryPlanets["Venus"]);
         inventoryImporter.UpdateInventory("Mars", inventoryPlanets["Mars"]);
         inventoryImporter.UpdateInventory("Jupiter", inventoryPlanets["Jupiter"]);
-        inventoryImporter.UpdateInventory("Neptune", inventoryPlanets["Neptune"]);
         inventoryImporter.UpdateInventory("Saturn", inventoryPlanets["Saturn"]);
+        inventoryImporter.UpdateInventory("Neptune", inventoryPlanets["Neptune"]);
+
         // foreach (GameObject obj in InventoryPlanets)
         // {
         //     obj.GetComponent<Image>().enabled = true;
@@ -148,6 +165,7 @@ public class UIController : MonoBehaviour
         }
         InstalledPlanets.Clear();
         GameManager.Instance.ChangeGameState("Mapping");
+        SetInventoryObj();
     }
 
     void SetInventoryObj()
@@ -163,8 +181,8 @@ public class UIController : MonoBehaviour
         inventoryPlanets.Add("Venus", inventory.Venus);
         inventoryPlanets.Add("Mars", inventory.Mars);
         inventoryPlanets.Add("Jupiter", inventory.Jupiter);
-        inventoryPlanets.Add("Neptune", inventory.Neptune);
         inventoryPlanets.Add("Saturn", inventory.Saturn);
+        inventoryPlanets.Add("Neptune", inventory.Neptune);
     }
 
     public void SetPlanetGravityEffectOff()

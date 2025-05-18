@@ -3,7 +3,8 @@ using UnityEngine;
 public class PlanetClickController : MonoBehaviour
 {
     [SerializeField] private LayerMask clickableLayer;
-    private Planet selectedPlanet;
+    private GameObject selectedPlanet = null;
+    DragableObj selectedPlanet_state = null;
     private Vector3 dragOffset;
     UIController uiController;
 
@@ -14,6 +15,16 @@ public class PlanetClickController : MonoBehaviour
 
     public void ClickDown(Vector3 position)
     {
+        if (uiController == null)
+        {
+            uiController = FindAnyObjectByType<UIController>();
+            if (uiController == null)
+            {
+                Debug.LogError("UIController not found!");
+                return;
+            }
+        }
+
         int clickableLayerMask = 1 << LayerMask.NameToLayer("Clickable");
         Ray ray = Camera.main.ScreenPointToRay(position);
         RaycastHit[] hits = Physics.RaycastAll(ray, 100f, clickableLayerMask);
@@ -27,7 +38,8 @@ public class PlanetClickController : MonoBehaviour
         if (hits.Length > 0)
         {
             GameManager.Instance.PlaySoundEffect("grab");
-            selectedPlanet = hits[0].collider.GetComponent<Planet>();
+            selectedPlanet = hits[0].collider.gameObject;
+            selectedPlanet_state = selectedPlanet.GetComponent<DragableObj>();
             if (selectedPlanet == null)
             {
                 Debug.LogWarning($"클릭한 오브젝트 {hits[0].collider.name}에 Planet 컴포넌트가 없습니다.");
@@ -58,13 +70,22 @@ public class PlanetClickController : MonoBehaviour
     {
         if(selectedPlanet != null)
         {
-            GameManager.Instance.PlaySoundEffect("drop");
-            Debug.Log($"행성 선택 해제: {selectedPlanet.name}");
-            selectedPlanet = null;
+            if (!selectedPlanet_state.isOverlaped)
+            {
+                GameManager.Instance.PlaySoundEffect("drop");
+                Debug.Log($"행성 선택 해제: {selectedPlanet.name}");
+                selectedPlanet = null;
+            }
+            else
+            {
+                GameManager.Instance.PlaySoundEffect("relocation");
+                selectedPlanet_state = null;
+                uiController.ReturnToInventory(selectedPlanet);
+            }
         }
     }
 
-    public void ReturnToInventory(Vector3 position)
+    public void ReturnToInventoryByRay(Vector3 position)
     {
         int clickableLayerMask = 1 << LayerMask.NameToLayer("Clickable");
         Ray ray = Camera.main.ScreenPointToRay(position);
