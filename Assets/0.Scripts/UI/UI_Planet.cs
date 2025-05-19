@@ -38,7 +38,7 @@ public class UI_Planet : MonoBehaviour, IPointerDownHandler
                 return;
             }*/
 
-            Debug.Log("Start Drag");
+            //Debug.Log("Start Drag");
             uiController.StartDragPlanet(this.gameObject, prefab_planet);
         }
     }

@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name != "Ingame")
         {
-            Debug.Log("Move to Ingame");
+            //Debug.Log("Move to Ingame");
             SceneController.Instance.LoadSceneAsync("Ingame");
             SetBGM("main", false);
             SetBGM("Ingame", true);

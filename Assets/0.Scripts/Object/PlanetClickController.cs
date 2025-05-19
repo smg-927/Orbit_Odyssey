@@ -29,7 +29,7 @@ public class PlanetClickController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(position);
         RaycastHit[] hits = Physics.RaycastAll(ray, 100f, clickableLayerMask);
 
-        Debug.Log($"=== 충돌한 오브젝트 목록 ({hits.Length}개) ===");
+        //Debug.Log($"=== 충돌한 오브젝트 목록 ({hits.Length}개) ===");
         foreach (RaycastHit hit in hits)
         {
             Debug.Log($"- {hit.collider.name} (Layer: {hit.collider.gameObject.layer})");
@@ -42,16 +42,16 @@ public class PlanetClickController : MonoBehaviour
             selectedPlanet_state = selectedPlanet.GetComponent<DragableObj>();
             if (selectedPlanet == null)
             {
-                Debug.LogWarning($"클릭한 오브젝트 {hits[0].collider.name}에 Planet 컴포넌트가 없습니다.");
+                //Debug.LogWarning($"클릭한 오브젝트 {hits[0].collider.name}에 Planet 컴포넌트가 없습니다.");
             }
             else
             {
-                Debug.Log($"행성 선택됨: {selectedPlanet.name}");
+                //Debug.Log($"행성 선택됨: {selectedPlanet.name}");
             }
         }
         else
         {
-            Debug.Log("클릭 가능한 오브젝트가 없습니다.");
+            //Debug.Log("클릭 가능한 오브젝트가 없습니다.");
             selectedPlanet = null;
         }
     }
@@ -73,11 +73,13 @@ public class PlanetClickController : MonoBehaviour
             if (!selectedPlanet_state.isOverlaped)
             {
                 GameManager.Instance.PlaySoundEffect("drop");
-                Debug.Log($"행성 선택 해제: {selectedPlanet.name}");
+                //Debug.Log($"행성 선택 해제: {selectedPlanet.name}");
                 selectedPlanet = null;
             }
             else
             {
+                Debug.Log("행성 삭제 - " + selectedPlanet.name);
+                Debug.Log("삭제 행성 overlap 여부 - " + selectedPlanet_state.isOverlaped);
                 GameManager.Instance.PlaySoundEffect("relocation");
                 selectedPlanet_state = null;
                 uiController.ReturnToInventory(selectedPlanet);

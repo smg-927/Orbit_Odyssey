@@ -12,6 +12,8 @@ public class Spaceship : MonoBehaviour
     private ShipStartPos shipStartPos;
     private BoxCollider collider;
 
+    GameObject particle1, particle2;
+
     private void Awake()
     {
         shipStartPos = Resources.Load<ShipStartPos>("DataTable/ShipStartPos/ShipStartPos");
@@ -21,10 +23,21 @@ public class Spaceship : MonoBehaviour
         previousPosition = transform.position;
         collider = GetComponent<BoxCollider>();
         collider.enabled = false;
+
+        particle1 = transform.Find("TrailEffect 1").gameObject;
+        particle2 = transform.Find("TrailEffect 2").gameObject;
+    }
+
+    private void Start()
+    {
+        particle1.SetActive(false);
+        particle2.SetActive(false);
     }
 
     public void GameStart()
     {
+        particle1.SetActive(true);
+        particle2.SetActive(true);
         rb.AddForce(new Vector3(1, 0, 0) * speed, ForceMode.VelocityChange);
     }
 
