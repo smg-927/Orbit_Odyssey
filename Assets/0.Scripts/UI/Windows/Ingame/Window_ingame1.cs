@@ -45,4 +45,10 @@ public class Window_ingame1 : Window
         GameManager.Instance.PlaySoundEffect("button2");
         GameManager.Instance.ChangeGameState("Menu");
     }
+
+    public void ReturnToStageSelect()
+    {
+        GameManager.Instance.PlaySoundEffect("button2");
+        GameManager.Instance.ChangeGameState("StageSelect");
+    }
 }

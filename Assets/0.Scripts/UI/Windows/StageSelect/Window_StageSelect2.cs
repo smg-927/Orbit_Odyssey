@@ -182,4 +182,10 @@ public class Window_StageSelect2 : Window
         GameManager.Instance.PlaySoundEffect("button2");
         GameManager.Instance.ChangeGameState("Menu");
     }
+
+    public void ReturnToStageSelect()
+    {
+        GameManager.Instance.PlaySoundEffect("button2");
+        GameManager.Instance.ChangeGameState("StageSelect");
+    }
 }
