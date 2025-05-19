@@ -68,7 +68,7 @@ public class Spaceship : MonoBehaviour
             float angle = Mathf.Atan2(XYDirection.y, XYDirection.x) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.Euler(-angle, 90f, 0);
             //rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * rotationSpeed));
-            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * rotationSpeed);
         }
 
         previousPosition = currentPosition;

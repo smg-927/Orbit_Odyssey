@@ -7,8 +7,6 @@ using NUnit.Framework;
 
 public class GameManager : MonoBehaviour
 {
-    private bool isFullscreen = true;
-
     public static GameManager Instance { get; private set; }
     private GameObject spaceship;
     [SerializeField] private GameObject spaceshipPrefab;
